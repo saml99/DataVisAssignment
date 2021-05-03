@@ -49,15 +49,15 @@ function init() {
             .scale(yScale)
             .ticks(10);
 
-        //  line = d3.line()
-        //    .x(function (d) { return xScale(d.year); })
-        //  .y(function (d) { return yScale(d.total); });
+        line = d3.line()
+          .x(function (d) { return xScale(d.year); })
+          .y(function (d) { return yScale(d.total); });
 
-        area = d3.area()
+        /*area = d3.area()
             .x(function (d) { return xScale(d.year); })
 
             .y0(function () { return yScale.range()[0]; }) //Specifys the bottom of the graph for the y-value
-            .y1(function (d) { return yScale(d.total); }); //Specifys the top of the y-value with the actual data
+            .y1(function (d) { return yScale(d.total); }); //Specifys the top of the y-value with the actual data*/
 
         //creates the svg element
         var svg = d3.select("#chart")
@@ -69,8 +69,8 @@ function init() {
             .datum(dataset.filter(function (d) {
                 return d.site == "Parks"
             }))
-            .attr("class", "area")
-            .attr("d", area);
+            .attr("class", "line")
+            .attr("d", line);
 
         //Creates the x-axis
         svg.append("g")
