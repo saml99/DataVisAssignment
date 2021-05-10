@@ -6,7 +6,7 @@ function init() {
     var padding = 60; //padding to allow for an axis
 
     //declares various variables
-    var dataset, xScale, yScale, xAxis, yAxis, area;
+    var dataset, xScale, yScale, xAxis, yAxis, line;
 
 
     var formatTime = d3.timeFormat("%Y");
@@ -316,6 +316,37 @@ function init() {
                 d3.select("#Otherid").remove();
 
                 other = false;
+            }
+
+        });
+
+        d3.select("#clear").on("click", function () {
+
+            if (parks == true || road == true || water == true || beach == true || bush == true || school == true || shops == true || dive == true || outdoor == true || other == true) {
+
+
+                d3.select("#Parksid").remove();
+                d3.select("#Roadid").remove();
+                d3.select("#Waterid").remove();
+                d3.select("#Beachid").remove();
+                d3.select("#Bushid").remove();
+                d3.select("#Schoolid").remove();
+                d3.select("#Shopid").remove();
+                d3.select("#Diveid").remove();
+                d3.select("#Outdoorid").remove();
+                d3.select("#Otherid").remove();
+
+                parks = false;
+                road = false;
+                water = false;
+                beach = false;
+                bush = false;
+                school = false;
+                shops = false;
+                dive = false;
+                outdoor = false;
+                other = false;
+
             }
 
         });
