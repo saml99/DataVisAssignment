@@ -25,6 +25,10 @@ function init() {
         dataset = data;
         console.log(dataset[0]);
 
+        lineChart(dataset);
+    });
+
+    function lineChart() {
         //Defines the x-scale
         xScale = d3.scaleTime() //scaleTime is utilised as the value is a date, rather than a linear number
             .domain([
@@ -842,12 +846,7 @@ function init() {
 
 
         });
-
-
-
-    });
-
-
+    };
 
 
 }
