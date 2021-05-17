@@ -92,6 +92,20 @@ function init() {
             .attr("transform", "translate(" + padding + ",0)")
             .call(yAxis);
 
+        var mouseover = function (event, d) {
+            div.transition()
+                .duration(200)
+                .style("opacity", .9);
+            div.html(d.total)
+                .style("left", (event.pageX) + "px")
+                .style("top", (event.pageY - 28) + "px");
+        }
+
+        var mouseout = function (d) {
+            div.transition()
+                .duration(500)
+                .style("opacity", 0);
+        }
 
 
         var parks = false, road = false, water = false, beach = false, bush = false, school = false, shops = false, dive = false, outdoor = false, other = false;
@@ -129,13 +143,14 @@ function init() {
                     .attr("cx", function (d) { return xScale(d.year) })
                     .attr("cy", function (d) { return yScale(d.total) })
                     .attr("r", 3)
+                    .on("mouseover", mouseover)
+                    .on("mouseout", mouseout)
                     .attr("id", "ParksCircle")
                     .attr("fill", "Black")
                     .style("fill-opacity", "0")
                     .attr("stroke", "none")
                     .transition()
                     .delay(1000)
-                    .attr("id", "ParksCircle")
                     .attr("fill", "Black")
                     .style("fill-opacity", "1")
                     .attr("stroke", "none");
@@ -203,13 +218,14 @@ function init() {
                     .attr("cx", function (d) { return xScale(d.year) })
                     .attr("cy", function (d) { return yScale(d.total) })
                     .attr("r", 3)
+                    .on("mouseover", mouseover)
+                    .on("mouseout", mouseout)
                     .attr("id", "RoadCircle")
                     .attr("fill", "Black")
                     .style("fill-opacity", "0")
                     .attr("stroke", "none")
                     .transition()
                     .delay(1000)
-                    .attr("id", "RoadCircle")
                     .attr("fill", "Black")
                     .style("fill-opacity", "1")
                     .attr("stroke", "none");
@@ -276,13 +292,14 @@ function init() {
                     .attr("cx", function (d) { return xScale(d.year) })
                     .attr("cy", function (d) { return yScale(d.total) })
                     .attr("r", 3)
+                    .on("mouseover", mouseover)
+                    .on("mouseout", mouseout)
                     .attr("id", "WaterCircle")
                     .attr("fill", "Black")
                     .style("fill-opacity", "0")
                     .attr("stroke", "none")
                     .transition()
                     .delay(1000)
-                    .attr("id", "WaterCircle")
                     .attr("fill", "Black")
                     .style("fill-opacity", "1")
                     .attr("stroke", "none");
@@ -348,13 +365,14 @@ function init() {
                     .attr("cx", function (d) { return xScale(d.year) })
                     .attr("cy", function (d) { return yScale(d.total) })
                     .attr("r", 3)
+                    .on("mouseover", mouseover)
+                    .on("mouseout", mouseout)
                     .attr("id", "BeachCirlce")
                     .attr("fill", "Black")
                     .style("fill-opacity", "0")
                     .attr("stroke", "none")
                     .transition()
                     .delay(1000)
-                    .attr("id", "BeachCircle")
                     .attr("fill", "Black")
                     .style("fill-opacity", "1")
                     .attr("stroke", "none");
@@ -420,13 +438,14 @@ function init() {
                     .attr("cx", function (d) { return xScale(d.year) })
                     .attr("cy", function (d) { return yScale(d.total) })
                     .attr("r", 3)
+                    .on("mouseover", mouseover)
+                    .on("mouseout", mouseout)
                     .attr("id", "BushCircle")
                     .attr("fill", "Black")
                     .style("fill-opacity", "0")
                     .attr("stroke", "none")
                     .transition()
                     .delay(1000)
-                    .attr("id", "BushCircle")
                     .attr("fill", "Black")
                     .style("fill-opacity", "1")
                     .attr("stroke", "none");
@@ -492,13 +511,14 @@ function init() {
                     .attr("cx", function (d) { return xScale(d.year) })
                     .attr("cy", function (d) { return yScale(d.total) })
                     .attr("r", 3)
+                    .on("mouseover", mouseover)
+                    .on("mouseout", mouseout)
                     .attr("id", "SchoolCircle")
                     .attr("fill", "Black")
                     .style("fill-opacity", "0")
                     .attr("stroke", "none")
                     .transition()
                     .delay(1000)
-                    .attr("id", "SchoolCircle")
                     .attr("fill", "Black")
                     .style("fill-opacity", "1")
                     .attr("stroke", "none");
@@ -564,13 +584,14 @@ function init() {
                     .attr("cx", function (d) { return xScale(d.year) })
                     .attr("cy", function (d) { return yScale(d.total) })
                     .attr("r", 3)
+                    .on("mouseover", mouseover)
+                    .on("mouseout", mouseout)
                     .attr("id", "ShopCircle")
                     .attr("fill", "Black")
                     .style("fill-opacity", "0")
                     .attr("stroke", "none")
                     .transition()
                     .delay(1000)
-                    .attr("id", "ShopCircle")
                     .attr("fill", "Black")
                     .style("fill-opacity", "1")
                     .attr("stroke", "none");
@@ -636,13 +657,14 @@ function init() {
                     .attr("cx", function (d) { return xScale(d.year) })
                     .attr("cy", function (d) { return yScale(d.total) })
                     .attr("r", 3)
+                    .on("mouseover", mouseover)
+                    .on("mouseout", mouseout)
                     .attr("id", "DiveCircle")
                     .attr("fill", "Black")
                     .style("fill-opacity", "0")
                     .attr("stroke", "none")
                     .transition()
                     .delay(1000)
-                    .attr("id", "DiveCircle")
                     .attr("fill", "Black")
                     .style("fill-opacity", "1")
                     .attr("stroke", "none");
@@ -708,13 +730,14 @@ function init() {
                     .attr("cx", function (d) { return xScale(d.year) })
                     .attr("cy", function (d) { return yScale(d.total) })
                     .attr("r", 3)
+                    .on("mouseover", mouseover)
+                    .on("mouseout", mouseout)
                     .attr("id", "OutdoorCircle")
                     .attr("fill", "Black")
                     .style("fill-opacity", "0")
                     .attr("stroke", "none")
                     .transition()
                     .delay(1000)
-                    .attr("id", "OutdoorCircle")
                     .attr("fill", "Black")
                     .style("fill-opacity", "1")
                     .attr("stroke", "none");
@@ -779,13 +802,14 @@ function init() {
                     .attr("cx", function (d) { return xScale(d.year) })
                     .attr("cy", function (d) { return yScale(d.total) })
                     .attr("r", 3)
+                    .on("mouseover", mouseover)
+                    .on("mouseout", mouseout)
                     .attr("id", "OtherCircle")
                     .attr("fill", "Black")
                     .style("fill-opacity", "0")
                     .attr("stroke", "none")
                     .transition()
                     .delay(1000)
-                    .attr("id", "OtherCircle")
                     .attr("fill", "Black")
                     .style("fill-opacity", "1")
                     .attr("stroke", "none");
@@ -851,24 +875,24 @@ function init() {
 
     function barChart() {
         var xScale = d3.scaleBand()
-                    .domain(dataset.map(function(d) { return d.site }))
-                    .range([padding, w])
-                    .paddingInner(0.05);
+            .domain(dataset.map(function (d) { return d.site }))
+            .range([padding, w])
+            .paddingInner(0.05);
 
         var yScale = d3.scaleLinear()
-                    .domain([0, d3.max(dataset, function (d) { return d.total; })]) //defines max possible input data value in the domain
-                    .range([h - padding,0]);
+            .domain([0, d3.max(dataset, function (d) { return d.total; })]) //defines max possible input data value in the domain
+            .range([h - padding, 0]);
 
         var xAxis = d3.axisBottom()
-                    .scale(xScale);
+            .scale(xScale);
 
         var yAxis = d3.axisLeft()
-                    .scale(yScale);
+            .scale(yScale);
 
         var svg = d3.select("#barChart")
-                    .append("svg")
-                    .attr("width", w)
-                    .attr("height", h);
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
 
         //Creates the x-axis
         svg.append("g")
@@ -886,14 +910,14 @@ function init() {
             .data(dataset)
             .enter()
             .append("rect")
-            .attr("x", function(d, i) {
+            .attr("x", function (d, i) {
                 return xScale(d.site);
             })
-            .attr("y", function(d) {
+            .attr("y", function (d) {
                 return yScale(d.total);
             })
             .attr("width", xScale.bandwidth())
-            .attr("height", function(d) {
+            .attr("height", function (d) {
                 return h - yScale(d.total) - padding;
             })
             .style("fill", "blue")
