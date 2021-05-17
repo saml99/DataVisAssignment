@@ -73,6 +73,9 @@ function init() {
             .y0(function () { return yScale.range()[0]; }) //Specifys the bottom of the graph for the y-value
             .y1(function (d) { return yScale(d.total); }); //Specifys the top of the y-value with the actual data
 
+        var div = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
 
         //creates the svg element
         var svg = d3.select("#chart")
