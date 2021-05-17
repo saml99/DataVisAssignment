@@ -54,15 +54,15 @@ function init() {
             .scale(yScale)
             .ticks(10);
 
-        /*initialline = d3.line()
+        initialline = d3.line()
             .x(function (d) { return xScale(d.year); })
             .y(function (d) { return yScale(0); });
 
         line = d3.line()
             .x(function (d) { return xScale(d.year); })
-            .y(function (d) { return yScale(d.total); });*/
+            .y(function (d) { return yScale(d.total); });
 
-        initialarea = d3.area()
+        /*initialarea = d3.area()
             .x(function (d) { return xScale(d.year); })
             .y0(function () { return yScale.range()[0]; })
             .y1(function () { return yScale.range()[0]; });
@@ -71,7 +71,7 @@ function init() {
             .x(function (d) { return xScale(d.year); })
 
             .y0(function () { return yScale.range()[0]; }) //Specifys the bottom of the graph for the y-value
-            .y1(function (d) { return yScale(d.total); }); //Specifys the top of the y-value with the actual data
+            .y1(function (d) { return yScale(d.total); }); //Specifys the top of the y-value with the actual data*/
 
         var div = d3.select("body").append("div")
             .attr("class", "tooltip")
@@ -121,19 +121,19 @@ function init() {
                         return d.site == "Parks"
                     }))
                     .attr("class", "area")
-                    .attr("d", initialarea)
-                    .style("fill", "red")
+                    .attr("d", initialline)
+                    .style("fill", "none")
                     .style("fill-opacity", "0.1")
                     .style("stroke", "black")
                     .style("stroke-width", "0")
                     .transition()
                     .duration(1000)
-                    .attr("d", area)
+                    .attr("d", line)
                     .attr("id", "Parksid")
-                    .style("fill", "red")
+                    .style("fill", "none")
                     .style("fill-opacity", "0.2")
                     .style("stroke", "red")
-                    .style("stroke-width", "0.5");
+                    .style("stroke-width", "2");
 
                 parks = true;
 
@@ -167,15 +167,15 @@ function init() {
                         return d.site == "Parks"
                     }))
                     .attr("class", "area")
-                    .attr("d", area)
-                    .style("fill", "red")
+                    .attr("d", line)
+                    .style("fill", "none")
                     .style("fill-opacity", "0.2")
                     .style("stroke", "red")
-                    .style("stroke-width", "0.5")
+                    .style("stroke-width", "2")
                     .transition()
                     .duration(1000)
-                    .attr("d", initialarea)
-                    .style("fill", "black")
+                    .attr("d", initialline)
+                    .style("fill", "none")
                     .style("fill-opacity", "0")
                     .style("stroke", "black")
                     .style("stroke-width", "0");
@@ -196,19 +196,19 @@ function init() {
                         return d.site == "Roadway"
                     }))
                     .attr("class", "area")
-                    .attr("d", initialarea)
-                    .style("fill", "green")
+                    .attr("d", initialline)
+                    .style("fill", "none")
                     .style("fill-opacity", "0.1")
                     .style("stroke", "black")
                     .style("stroke-width", "0")
                     .transition()
                     .duration(1000)
-                    .attr("d", area)
+                    .attr("d", line)
                     .attr("id", "Roadid")
-                    .style("fill", "green")
+                    .style("fill", "none")
                     .style("fill-opacity", "0.2")
                     .style("stroke", "green")
-                    .style("stroke-width", "0.5");
+                    .style("stroke-width", "2");
 
                 road = true;
 
@@ -241,15 +241,15 @@ function init() {
                         return d.site == "Roadway"
                     }))
                     .attr("class", "area")
-                    .attr("d", area)
-                    .style("fill", "green")
+                    .attr("d", line)
+                    .style("fill", "none")
                     .style("fill-opacity", "0.2")
                     .style("stroke", "green")
-                    .style("stroke-width", "0.5")
+                    .style("stroke-width", "2")
                     .transition()
                     .duration(1000)
-                    .attr("d", initialarea)
-                    .style("fill", "black")
+                    .attr("d", initialline)
+                    .style("fill", "none")
                     .style("fill-opacity", "0")
                     .style("stroke", "black")
                     .style("stroke-width", "0");
@@ -270,19 +270,19 @@ function init() {
                         return d.site == "Waterways"
                     }))
                     .attr("class", "area")
-                    .attr("d", initialarea)
-                    .style("fill", "blue")
+                    .attr("d", initialline)
+                    .style("fill", "none")
                     .style("fill-opacity", "0.1")
                     .style("stroke", "black")
                     .style("stroke-width", "0")
                     .transition()
                     .duration(1000)
-                    .attr("d", area)
+                    .attr("d", line)
                     .attr("id", "Waterid")
-                    .style("fill", "blue")
+                    .style("fill", "none")
                     .style("fill-opacity", "0.2")
                     .style("stroke", "blue")
-                    .style("stroke-width", "0.5");
+                    .style("stroke-width", "2");
 
                 water = true;
 
@@ -315,15 +315,15 @@ function init() {
                         return d.site == "Waterways"
                     }))
                     .attr("class", "area")
-                    .attr("d", area)
-                    .style("fill", "blue")
+                    .attr("d", line)
+                    .style("fill", "none")
                     .style("fill-opacity", "0.2")
                     .style("stroke", "blue")
-                    .style("stroke-width", "0.5")
+                    .style("stroke-width", "2")
                     .transition()
                     .duration(1000)
-                    .attr("d", initialarea)
-                    .style("fill", "black")
+                    .attr("d", initialline)
+                    .style("fill", "none")
                     .style("fill-opacity", "0")
                     .style("stroke", "black")
                     .style("stroke-width", "0");
@@ -343,19 +343,19 @@ function init() {
                         return d.site == "Beach/Coastal"
                     }))
                     .attr("class", "area")
-                    .attr("d", initialarea)
-                    .style("fill", "orange")
+                    .attr("d", initialline)
+                    .style("fill", "none")
                     .style("fill-opacity", "0.1")
                     .style("stroke", "black")
                     .style("stroke-width", "0")
                     .transition()
                     .duration(1000)
-                    .attr("d", area)
+                    .attr("d", line)
                     .attr("id", "Beachid")
-                    .style("fill", "orange")
+                    .style("fill", "none")
                     .style("fill-opacity", "0.2")
                     .style("stroke", "orange")
-                    .style("stroke-width", "0.5");
+                    .style("stroke-width", "2");
 
                 beach = true;
 
@@ -370,7 +370,7 @@ function init() {
                     .attr("r", 3)
                     .on("mouseover", mouseover)
                     .on("mouseout", mouseout)
-                    .attr("id", "BeachCirlce")
+                    .attr("id", "BeachCircle")
                     .attr("fill", "Black")
                     .style("fill-opacity", "0")
                     .attr("stroke", "none")
@@ -388,15 +388,15 @@ function init() {
                         return d.site == "Beach/Coastal"
                     }))
                     .attr("class", "area")
-                    .attr("d", area)
-                    .style("fill", "orange")
+                    .attr("d", line)
+                    .style("fill", "none")
                     .style("fill-opacity", "0.2")
                     .style("stroke", "orange")
-                    .style("stroke-width", "0.5")
+                    .style("stroke-width", "2")
                     .transition()
                     .duration(1000)
-                    .attr("d", initialarea)
-                    .style("fill", "black")
+                    .attr("d", initialline)
+                    .style("fill", "none")
                     .style("fill-opacity", "0")
                     .style("stroke", "black")
                     .style("stroke-width", "0");
@@ -416,19 +416,19 @@ function init() {
                         return d.site == "Bushland"
                     }))
                     .attr("class", "area")
-                    .attr("d", initialarea)
-                    .style("fill", "yellow")
+                    .attr("d", initialline)
+                    .style("fill", "none")
                     .style("fill-opacity", "0.1")
                     .style("stroke", "black")
                     .style("stroke-width", "0")
                     .transition()
                     .duration(1000)
-                    .attr("d", area)
+                    .attr("d", line)
                     .attr("id", "Bushid")
-                    .style("fill", "yellow")
+                    .style("fill", "none")
                     .style("fill-opacity", "0.2")
                     .style("stroke", "yellow")
-                    .style("stroke-width", "0.5");
+                    .style("stroke-width", "2");
 
                 bush = true;
 
@@ -461,15 +461,15 @@ function init() {
                         return d.site == "Bushland"
                     }))
                     .attr("class", "area")
-                    .attr("d", area)
-                    .style("fill", "yellow")
+                    .attr("d", line)
+                    .style("fill", "none")
                     .style("fill-opacity", "0.2")
                     .style("stroke", "yellow")
-                    .style("stroke-width", "0.5")
+                    .style("stroke-width", "2")
                     .transition()
                     .duration(1000)
-                    .attr("d", initialarea)
-                    .style("fill", "black")
+                    .attr("d", initialline)
+                    .style("fill", "none")
                     .style("fill-opacity", "0")
                     .style("stroke", "black")
                     .style("stroke-width", "0");
@@ -489,19 +489,19 @@ function init() {
                         return d.site == "School Grounds"
                     }))
                     .attr("class", "area")
-                    .attr("d", initialarea)
-                    .style("fill", "purple")
+                    .attr("d", initialline)
+                    .style("fill", "none")
                     .style("fill-opacity", "0.1")
                     .style("stroke", "black")
                     .style("stroke-width", "0")
                     .transition()
                     .duration(1000)
-                    .attr("d", area)
+                    .attr("d", line)
                     .attr("id", "Schoolid")
-                    .style("fill", "purple")
+                    .style("fill", "none")
                     .style("fill-opacity", "0.2")
                     .style("stroke", "purple")
-                    .style("stroke-width", "0.5");
+                    .style("stroke-width", "2");
 
                 school = true;
 
@@ -534,15 +534,15 @@ function init() {
                         return d.site == "School Grounds"
                     }))
                     .attr("class", "area")
-                    .attr("d", area)
-                    .style("fill", "purple")
+                    .attr("d", line)
+                    .style("fill", "none")
                     .style("fill-opacity", "0.2")
                     .style("stroke", "purple")
-                    .style("stroke-width", "0.5")
+                    .style("stroke-width", "2")
                     .transition()
                     .duration(1000)
-                    .attr("d", initialarea)
-                    .style("fill", "black")
+                    .attr("d", initialline)
+                    .style("fill", "none")
                     .style("fill-opacity", "0")
                     .style("stroke", "black")
                     .style("stroke-width", "0");
@@ -562,19 +562,19 @@ function init() {
                         return d.site == "Shops/malls"
                     }))
                     .attr("class", "area")
-                    .attr("d", initialarea)
-                    .style("fill", "navy")
+                    .attr("d", initialline)
+                    .style("fill", "none")
                     .style("fill-opacity", "0.1")
                     .style("stroke", "black")
                     .style("stroke-width", "0")
                     .transition()
                     .duration(1000)
-                    .attr("d", area)
+                    .attr("d", line)
                     .attr("id", "Shopid")
-                    .style("fill", "navy")
+                    .style("fill", "none")
                     .style("fill-opacity", "0.2")
                     .style("stroke", "navy")
-                    .style("stroke-width", "0.5");
+                    .style("stroke-width", "2");
 
                 shops = true;
 
@@ -607,15 +607,15 @@ function init() {
                         return d.site == "Shops/malls"
                     }))
                     .attr("class", "area")
-                    .attr("d", area)
-                    .style("fill", "navy")
+                    .attr("d", line)
+                    .style("fill", "none")
                     .style("fill-opacity", "0.2")
                     .style("stroke", "navy")
-                    .style("stroke-width", "0.5")
+                    .style("stroke-width", "2")
                     .transition()
                     .duration(1000)
-                    .attr("d", initialarea)
-                    .style("fill", "black")
+                    .attr("d", initialline)
+                    .style("fill", "none")
                     .style("fill-opacity", "0")
                     .style("stroke", "black")
                     .style("stroke-width", "0");
@@ -635,19 +635,19 @@ function init() {
                         return d.site == "Dive Site"
                     }))
                     .attr("class", "area")
-                    .attr("d", initialarea)
-                    .style("fill", "brown")
+                    .attr("d", initialline)
+                    .style("fill", "none")
                     .style("fill-opacity", "0.1")
                     .style("stroke", "black")
                     .style("stroke-width", "0")
                     .transition()
                     .duration(1000)
-                    .attr("d", area)
+                    .attr("d", line)
                     .attr("id", "Diveid")
-                    .style("fill", "brown")
+                    .style("fill", "none")
                     .style("fill-opacity", "0.2")
                     .style("stroke", "brown")
-                    .style("stroke-width", "0.5");
+                    .style("stroke-width", "2");
 
                 dive = true;
 
@@ -680,15 +680,15 @@ function init() {
                         return d.site == "Dive Site"
                     }))
                     .attr("class", "area")
-                    .attr("d", area)
-                    .style("fill", "brown")
+                    .attr("d", line)
+                    .style("fill", "none")
                     .style("fill-opacity", "0.2")
                     .style("stroke", "brown")
-                    .style("stroke-width", "0.5")
+                    .style("stroke-width", "2")
                     .transition()
                     .duration(1000)
-                    .attr("d", initialarea)
-                    .style("fill", "black")
+                    .attr("d", initialline)
+                    .style("fill", "none")
                     .style("fill-opacity", "0")
                     .style("stroke", "black")
                     .style("stroke-width", "0");
@@ -708,19 +708,19 @@ function init() {
                         return d.site == "Outdoor Transport"
                     }))
                     .attr("class", "area")
-                    .attr("d", initialarea)
-                    .style("fill", "black")
+                    .attr("d", initialline)
+                    .style("fill", "none")
                     .style("fill-opacity", "0.1")
                     .style("stroke", "black")
                     .style("stroke-width", "0")
                     .transition()
                     .duration(1000)
-                    .attr("d", area)
+                    .attr("d", line)
                     .attr("id", "Outdoorid")
-                    .style("fill", "black")
+                    .style("fill", "none")
                     .style("fill-opacity", "0.2")
                     .style("stroke", "black")
-                    .style("stroke-width", "0.5");
+                    .style("stroke-width", "2");
 
                 outdoor = true;
 
@@ -752,15 +752,15 @@ function init() {
                         return d.site == "Outdoor Transport"
                     }))
                     .attr("class", "area")
-                    .attr("d", area)
-                    .style("fill", "black")
+                    .attr("d", line)
+                    .style("fill", "none")
                     .style("fill-opacity", "0.2")
                     .style("stroke", "black")
-                    .style("stroke-width", "0.5")
+                    .style("stroke-width", "2")
                     .transition()
                     .duration(1000)
-                    .attr("d", initialarea)
-                    .style("fill", "black")
+                    .attr("d", initialline)
+                    .style("fill", "none")
                     .style("fill-opacity", "0")
                     .style("stroke", "black")
                     .style("stroke-width", "0");
@@ -780,19 +780,19 @@ function init() {
                         return d.site == "Other"
                     }))
                     .attr("class", "area")
-                    .attr("d", initialarea)
-                    .style("fill", "teal")
+                    .attr("d", initialline)
+                    .style("fill", "none")
                     .style("fill-opacity", "0.1")
                     .style("stroke", "black")
                     .style("stroke-width", "0")
                     .transition()
                     .duration(1000)
-                    .attr("d", area)
+                    .attr("d", line)
                     .attr("id", "Otherid")
-                    .style("fill", "teal")
+                    .style("fill", "none")
                     .style("fill-opacity", "0.2")
                     .style("stroke", "teal")
-                    .style("stroke-width", "0.5");
+                    .style("stroke-width", "2");
 
                 other = true;
 
@@ -825,15 +825,15 @@ function init() {
                         return d.site == "Other"
                     }))
                     .attr("class", "area")
-                    .attr("d", area)
-                    .style("fill", "teal")
+                    .attr("d", line)
+                    .style("fill", "none")
                     .style("fill-opacity", "0.2")
                     .style("stroke", "teal")
-                    .style("stroke-width", "0.5")
+                    .style("stroke-width", "2")
                     .transition()
                     .duration(1000)
-                    .attr("d", initialarea)
-                    .style("fill", "black")
+                    .attr("d", initialline)
+                    .style("fill", "none")
                     .style("fill-opacity", "0")
                     .style("stroke", "black")
                     .style("stroke-width", "0");
