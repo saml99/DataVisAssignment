@@ -26,6 +26,7 @@ function init() {
         console.log(dataset[0]);
 
         lineChart(dataset);
+        barChart(dataset);
     });
 
     function lineChart() {
@@ -848,7 +849,55 @@ function init() {
         });
     };
 
+    function barChart() {
+        var xScale = d3.scaleBand()
+                    .domain(dataset.map(function(d) { return d.site }))
+                    .range([padding, w])
+                    .paddingInner(0.05);
 
+        var yScale = d3.scaleLinear()
+                    .domain([0, d3.max(dataset, function (d) { return d.total; })]) //defines max possible input data value in the domain
+                    .range([h - padding,0]);
+
+        var xAxis = d3.axisBottom()
+                    .scale(xScale);
+
+        var yAxis = d3.axisLeft()
+                    .scale(yScale);
+
+        var svg = d3.select("#barChart")
+                    .append("svg")
+                    .attr("width", w)
+                    .attr("height", h);
+
+        //Creates the x-axis
+        svg.append("g")
+            .attr("class", "axis")
+            .attr("transform", "translate(0," + (h - padding) + ")")
+            .call(xAxis);
+
+        //Creates the y-axis
+        svg.append("g")
+            .attr("class", "axis")
+            .attr("transform", "translate(" + padding + ",0)")
+            .call(yAxis);
+
+        svg.selectAll("rect")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr("x", function(d, i) {
+                return xScale(d.site);
+            })
+            .attr("y", function(d) {
+                return yScale(d.total);
+            })
+            .attr("width", xScale.bandwidth())
+            .attr("height", function(d) {
+                return h - yScale(d.total) - padding;
+            })
+            .style("fill", "blue")
+    };
 }
 
 window.onload = init;
