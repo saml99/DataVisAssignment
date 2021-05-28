@@ -895,7 +895,9 @@ function init() {
         var svg = d3.select("#barChart")
             .append("svg")
             .attr("width", w + padding)
-            .attr("height", h + padding);
+            .attr("height", h + padding)
+            .append("g")
+            .attr("transform", "translate(" + padding + " ," + padding + ")");
 
         //Creates the x-axis
         svg.append("g")
