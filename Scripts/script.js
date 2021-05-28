@@ -894,8 +894,8 @@ function init() {
 
         var svg = d3.select("#barChart")
             .append("svg")
-            .attr("width", w)
-            .attr("height", h);
+            .attr("width", w + padding)
+            .attr("height", h + padding);
 
         //Creates the x-axis
         svg.append("g")
