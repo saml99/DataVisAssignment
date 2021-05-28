@@ -897,7 +897,7 @@ function init() {
             .attr("width", w + padding)
             .attr("height", h + padding)
             .append("g")
-            .attr("transform", "translate(" + padding + " ," + padding + ")");
+            .attr("transform", "translate(" + padding + " ,0)");
 
         //Creates the x-axis
         svg.append("g")
@@ -917,8 +917,6 @@ function init() {
 
         svg.append("text")
             .attr("transform", "rotate(-90)")
-            .attr("y", 0 - padding)
-            .attr("x", 0 - (h/2))
             .text("Total Waste");
 
         svg.selectAll("rect")
