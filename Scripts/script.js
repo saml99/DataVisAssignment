@@ -903,6 +903,10 @@ function init() {
             .attr("transform", "translate(0," + (h - padding) + ")")
             .call(xAxis);
 
+        svg.append("text")
+            .attr("transform", "translate(" + (w/2) + " ," + (h - padding) + ")")
+            .text("Site Type");
+
         //Creates the y-axis
         svg.append("g")
             .attr("class", "axis")
