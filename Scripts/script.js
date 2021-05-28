@@ -904,7 +904,7 @@ function init() {
             .call(xAxis);
 
         svg.append("text")
-            .attr("transform", "translate(" + (w/2) + " ," + (h + padding + 50) + ")")
+            .attr("transform", "translate(" + (w/2) + " ," + (h + padding) + ")")
             .text("Site Type");
 
         //Creates the y-axis
