@@ -913,6 +913,12 @@ function init() {
             .attr("transform", "translate(" + padding + ",0)")
             .call(yAxis);
 
+        svg.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 0 - padding)
+            .attr("x", 0 - (h/2))
+            .text("Total Waste");
+
         svg.selectAll("rect")
             .data(dataset)
             .enter()
