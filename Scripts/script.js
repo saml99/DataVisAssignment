@@ -917,6 +917,9 @@ function init() {
 
         svg.append("text")
             .attr("transform", "rotate(-90)")
+            .attr("y", 0 - padding)
+            .attr("x",0 - (h / 2))
+            .attr("dy", "1em")
             .text("Total Waste");
 
         svg.selectAll("rect")
