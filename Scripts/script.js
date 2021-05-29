@@ -882,8 +882,7 @@ function init() {
         console.log(dataset.columns.slice(0));
 
         var stack = d3.stack()
-                    .keys(dataset.columns.slice(0))(dataset)
-                    .map(function (d) { return d.year });
+                    .keys(dataset.map(function (d) {return d.year}));
 
         console.log(stack);
 
@@ -904,7 +903,7 @@ function init() {
 
         var svg = d3.select("#barChart")
             .append("svg")
-            .attr("width", w + padding)
+            .attr("width", w + 2 * padding)
             .attr("height", h + padding)
             .append("g")
             .attr("transform", "translate(" + padding + " ,0)");
