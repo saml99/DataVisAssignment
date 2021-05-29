@@ -932,6 +932,22 @@ function init() {
             .append("g")
             .style("fill", "blue");
 
+        groups.selectAll("rect")
+            .data(function (d) { return d; })
+            .enter()
+            .append("rect")
+            .attr("x", function (d) {
+                return xScale(d.data.site);
+            })
+            .attr("y", function (d) {
+                return yScale(d[1]);
+            })
+            .attr("width", xScale.bandwidth())
+            .attr("height", function (d) {
+                return yScale(d[0]) - yScale(d[1]);
+            })
+            .style("fill", "blue");
+
         //Creates the x-axis
         svg.append("g")
             .attr("class", "axis")
@@ -954,22 +970,6 @@ function init() {
             .attr("x",0 - (h / 2))
             .attr("dy", "1em")
             .text("Total Waste");
-
-        groups.selectAll("rect")
-            .data(function (d) { return d; })
-            .enter()
-            .append("rect")
-            .attr("x", function (d) {
-                return xScale(d.data.site);
-            })
-            .attr("y", function (d) {
-                return yScale(d[1]);
-            })
-            .attr("width", xScale.bandwidth())
-            .attr("height", function (d) {
-                return yScale(d[0]) - yScale(d[1]);
-            })
-            .style("fill", "blue")
     };
 }
 
