@@ -880,12 +880,12 @@ function init() {
         var color = d3.scaleOrdinal(d3.schemeCategory10);
 
         console.log(dataset);
-        console.log(dataset.columns.slice(2));
+        console.log(dataset.year);
 
         var series = d3.stack()
                     .keys(dataset.map(function (d) {return d.year}));
 
-        console.log(stack);
+        console.log(series);
 
         var xScale = d3.scaleBand()
             .domain(dataset.map(function (d) { return d.site }))
