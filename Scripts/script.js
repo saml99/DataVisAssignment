@@ -884,10 +884,12 @@ function init() {
           }
 
         console.log(dataset);
+        console.log(dataset.columns.slice(1));
         console.log(dataset.map(function (d) {return d.year.getFullYear().toString()}).filter(unique));
 
         var series = d3.stack()
-                    .keys(dataset.map(function (d) {return d.year.getFullYear().toString()}).filter(unique));
+                    .keys(dataset.map(function (d) {return d.year.getFullYear().toString()}).filter(unique))
+                    (dataset);
 
         console.log(series);
 
