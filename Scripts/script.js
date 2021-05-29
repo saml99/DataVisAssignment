@@ -926,6 +926,12 @@ function init() {
             .append("g")
             .attr("transform", "translate(" + padding + " ,0)");
 
+        var groups = svg.selectAll("g")
+            .data(series)
+            .enter()
+            .append("g")
+            .style("fill", "blue");
+
         //Creates the x-axis
         svg.append("g")
             .attr("class", "axis")
@@ -948,12 +954,6 @@ function init() {
             .attr("x",0 - (h / 2))
             .attr("dy", "1em")
             .text("Total Waste");
-
-        var groups = svg.selectAll("g")
-                        .data(series)
-                        .enter()
-                        .append("g")
-                        .style("fill", "blue");
 
         groups.selectAll("rect")
             .data(function (d) { return d; })
