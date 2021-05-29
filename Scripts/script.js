@@ -13,7 +13,7 @@ function init() {
 
     d3.csv("WasteData.csv", function (d) {
         return {
-            year: new Date(d.year),
+            year: d.year,
             site: d.Site_Name,
             numOfSites: +d.Number_of_Sites,
             total: parseInt(+d.Number_of_Items_Found),
