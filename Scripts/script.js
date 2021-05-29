@@ -879,10 +879,10 @@ function init() {
     function barChart() {
         var color = d3.scaleOrdinal(d3.schemeCategory10);
 
-        console.log(dataset.map(function(d) {return d.year} ));
+        console.log(dataset);
 
-        var stack = d3.stack()
-                    .keys(dataset.map(d => (d.forEach(v => v.year = d.year), d)));
+        var series = d3.stack()
+                    .keys(dataset.map(function (d) {return d.year}));
 
         console.log(stack);
 
