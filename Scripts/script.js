@@ -949,8 +949,16 @@ function init() {
             .attr("dy", "1em")
             .text("Total Waste");
 
-        svg.selectAll("rect")
-            .data(dataset)
+        var groups = svg.selectAll("g")
+                        .data(series)
+                        .enter()
+                        .append("g")
+                        .style("fill", function(d, i) {
+                            return color(i);
+                        });
+
+        groups.selectAll("rect")
+            .data(function (d) { return d; })
             .enter()
             .append("rect")
             .attr("x", function (d, i) {
