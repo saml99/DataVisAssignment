@@ -1,4 +1,4 @@
-function barChartInit() {
+export function barChartInit() {
 
     //width and Height
     var w = 800;
