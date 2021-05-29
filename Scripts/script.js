@@ -879,8 +879,12 @@ function init() {
     function barChart() {
         var color = d3.scaleOrdinal(d3.schemeCategory10);
 
+        const unique = (value, index, self) => {
+            return self.indexOf(value) === index
+          }
+
         console.log(dataset);
-        console.log(dataset.map(function (d) {return d.year}).filter(onlyUnique));
+        console.log(dataset.map(function (d) {return d.year}).filter(unique));
 
         var series = d3.stack()
                     .keys(dataset.map(function (d) {return d.year}));
