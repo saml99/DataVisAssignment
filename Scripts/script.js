@@ -962,10 +962,10 @@ function init() {
             .enter()
             .append("rect")
             .attr("x", function (d, i) {
-                return xScale(d.site);
+                return xScale(i);
             })
             .attr("y", function (d) {
-                return yScale(d.total);
+                return yScale(d[1]);
             })
             .attr("width", xScale.bandwidth())
             .attr("height", function (d) {
