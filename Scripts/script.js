@@ -884,7 +884,7 @@ function init() {
           }
 
         console.log(dataset);
-        console.log(dataset.map(function (d) {return d.year.getFullYear()}));
+        console.log(dataset.map(function (d) {return d.year.getFullYear()}).filter(unique));
 
         var series = d3.stack()
                     .keys(dataset.map(function (d) {return d.year.getFullYear()}).filter(unique));
