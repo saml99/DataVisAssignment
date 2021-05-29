@@ -881,7 +881,10 @@ function init() {
 
         var unique = (value, index, self) => {
             return self.indexOf(value) === index
-          }
+          };
+
+        var sites = dataset.map(function (d) {return d.site}).filter(unique);
+        console.log(sites);
 
         console.log(dataset);
         console.log(dataset.columns.slice(1));
