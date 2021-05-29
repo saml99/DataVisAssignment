@@ -935,8 +935,7 @@ function init() {
             .attr("width", xScale.bandwidth())
             .attr("height", function (d) {
                 return yScale(d[0]) - yScale(d[1]);
-            })
-            .style("fill", "blue");
+            });
 
         //Creates the x-axis
         svg.append("g")
