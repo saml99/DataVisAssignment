@@ -905,8 +905,8 @@ function init() {
                 console.log(d);
                 total = 0;
                 for (i = 0; dataset.length; i++) {
-                    console.log(dataset[i].site);
-                    if (dataset[i].site == d) {
+                    var site = dataset[i].site;
+                    if (site == d) {
                         total = total + dataset[i].total
                     }
                 }
