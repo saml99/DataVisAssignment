@@ -902,10 +902,15 @@ function init() {
             .paddingInner(0.05);
 
         var yScale = d3.scaleLinear()
-            .domain([0, d3.max(dataset, function (d, i) { 
-                
-                console.log(i);
-                return d.total; 
+            .domain([0, d3.max(sites, function (d) { 
+                console.log(d);
+                total = 0;
+                for (j = 0; dataset.length; j++) {
+                    if (dataset[j].site == d[i]) {
+                        total = total + dataset[j].total
+                    }
+                }
+                return total;
             })]) //defines max possible input data value in the domain
             .range([h - padding, 0]);
 
