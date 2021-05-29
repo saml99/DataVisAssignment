@@ -900,8 +900,7 @@ function init() {
 
         var yScale = d3.scaleLinear()
             .domain([0, d3.max(dataset, function (d) { 
-                var sites = d.site.filter(unique);
-                console.log(sites);
+                console.log(d.length);
                 return d.total; 
             })]) //defines max possible input data value in the domain
             .range([h - padding, 0]);
