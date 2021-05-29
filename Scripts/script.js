@@ -879,7 +879,7 @@ function init() {
     function barChart() {
         var color = d3.scaleOrdinal(d3.schemeCategory10);
 
-        console.log(dataset)
+        console.log(data);
 
         var stack = d3.stack()
                     .keys();
