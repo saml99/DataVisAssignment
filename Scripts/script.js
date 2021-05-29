@@ -899,8 +899,9 @@ function init() {
             .paddingInner(0.05);
 
         var yScale = d3.scaleLinear()
-            .domain([0, d3.max(dataset, function (d) { 
-                console.log(d.length);
+            .domain([0, d3.max(dataset, function (d, i) { 
+                
+                console.log(i);
                 return d.total; 
             })]) //defines max possible input data value in the domain
             .range([h - padding, 0]);
