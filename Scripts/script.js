@@ -903,9 +903,9 @@ function init() {
         var yScale = d3.scaleLinear()
             .domain([0, d3.max(sites, function (d) { 
                 console.log(d);
-                console.log(dataset[0].site);
                 total = 0;
                 for (i = 0; dataset.length; i++) {
+                    console.log(dataset[i].site);
                     if (dataset[i].site == d) {
                         total = total + dataset[i].total
                     }
