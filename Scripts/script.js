@@ -882,7 +882,7 @@ function init() {
         console.log(dataset.columns.slice(0));
 
         var stack = d3.stack()
-                    .keys(dataset.columns.slice(0)
+                    .keys(dataset.columns.slice(0))
                     .map(function (d) { return d.year }));
 
         console.log(stack);
