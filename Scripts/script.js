@@ -886,7 +886,6 @@ function init() {
         var sites = dataset.map(function (d) {return d.site}).filter(unique);
         console.log(sites);
 
-        console.log(dataset[0].site);
         console.log(dataset.columns.slice(1));
         console.log(dataset.map(function (d) {return d.year.getFullYear().toString()}).filter(unique));
 
@@ -904,7 +903,7 @@ function init() {
         var yScale = d3.scaleLinear()
             .domain([0, d3.max(sites, function (d) { 
                 console.log(d);
-                console.log(dataset[0]);
+                console.log(dataset[0].site);
                 total = 0;
                 for (i = 0; dataset.length; i++) {
                     if (dataset[i].site == d) {
