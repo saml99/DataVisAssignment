@@ -918,8 +918,8 @@ function init() {
             .data(series)
             .enter()
             .append("g")
-            .style("fill", function (d, i) {
-                return color(i);
+            .style("fill", function (d) {
+                return color(d.key);
             });
 
         groups.selectAll("rect")
