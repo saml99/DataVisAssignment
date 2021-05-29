@@ -918,7 +918,9 @@ function init() {
             .data(series)
             .enter()
             .append("g")
-            .style("fill", "blue");
+            .style("fill", function (d, i) {
+                return color(i);
+            });
 
         groups.selectAll("rect")
             .data(function (d) { return d; })
