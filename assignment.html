@@ -6,25 +6,12 @@
     <meta name="description" content="Data Visualisation Assignment">
     <meta name="keywords" content="HTML, CSS, D3" />
     <meta name="author" content="Owen, Sam" />
+    <link href="Styles/style.css" rel="stylesheet" />
 
     <title>Assignment</title>
     <!--Reference to the v6 of D3 Library-->
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="Scripts/script.js"></script>
-    <style>
-        div.tooltip {
-            position: absolute;
-            text-align: center;
-            width: 60px;
-            height: 28px;
-            padding: 2px;
-            font: 16px sans-serif;
-            background: lightsteelblue;
-            border: 0px;
-            border-radius: 8px;
-            pointer-events: none;
-        }
-    </style>
 
 </head>
 
@@ -34,21 +21,22 @@
 
     <p id="chart"></p>
 
-    <button id="Park">Parks</button>
-    <button id="Road">Roadway</button>
-    <button id="Water">Waterways</button>
-    <button id="Beach">Beach/Coastal</button>
-    <button id="Bush">Bushland</button>
+    <button id="Park" class="button btnParks">Parks</button>
+    <button id="Road" class="button btnRoad">Roadway</button>
+    <button id="Water" class="button btnWater">Waterways</button>
+    <button id="Beach" class="button btnBeach">Beach/Coastal</button>
+    <button id="Bush" class="button btnBush">Bushland</button>
+    <button id="School" class="button btnSchool">School Grounds</button>
 
     <br>
     <br>
 
-    <button id="School">School Grounds</button>
-    <button id="Shops">Shops/Malls</button>
-    <button id="Dive">Dive Site</button>
-    <button id="Outdoor">Outdoor Transport</button>
-    <button id="Other">Other</button>
-    <button id="clear">Clear All</button>
+    <button id="Shops" class="button btnShops">Shops/Malls</button>
+    <button id="Dive" class="button btnDive">Dive Site</button>
+    <button id="Outdoor" class="button btnOutdoor">Outdoor Transport</button>
+    <button id="Other" class="button btnOther">Other</button>
+    <button id="shAll" class="button btnshAll">Show All</button>
+    <button id="clear" class="button btnClear">Clear All</button>
 
     <p id="barChart"></p>
 
