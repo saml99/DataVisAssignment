@@ -114,7 +114,7 @@ function init() {
             div.transition()
                 .duration(200)
                 .style("opacity", .9);
-            div.html(d.total + " individual items of waste was collected in " + formatTime(d.year))
+            div.html(d.total + "<br> individual items of waste were collected for the area of " + d.site)
                 .style("left", (event.pageX) + "px")
                 .style("top", (event.pageY) + "px");
         }
