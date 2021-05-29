@@ -1,4 +1,4 @@
-function init() {
+function barChartInit() {
 
     //width and Height
     var w = 800;
@@ -124,5 +124,3 @@ function init() {
             .text("Total Waste");
     };
 }
-
-window.onload = init;

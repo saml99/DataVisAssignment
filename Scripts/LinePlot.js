@@ -1,3 +1,5 @@
+import {barChartInit} from barChart.js
+
 function init() {
 
     //width and Height
@@ -25,6 +27,7 @@ function init() {
         console.log(dataset[0]);
 
         lineChart(dataset);
+        barChartInit();
     });
 
     function lineChart() {
@@ -867,10 +870,6 @@ function init() {
                 other = false;
 
             }
-
-
-
-
         });
     };
 }
