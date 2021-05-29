@@ -961,8 +961,8 @@ function init() {
             .data(function (d) { return d; })
             .enter()
             .append("rect")
-            .attr("x", function (d, i) {
-                return xScale(i);
+            .attr("x", function (d) {
+                return xScale(d.data.site);
             })
             .attr("y", function (d) {
                 return yScale(d[1]);
