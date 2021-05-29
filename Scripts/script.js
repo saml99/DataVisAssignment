@@ -870,7 +870,7 @@ function init() {
         });
     };
 
-    /*d3.csv("BarChartData.csv", function(d, i, columns) {
+    d3.csv("BarChartData.csv", function(d, i, columns) {
             for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
             d.total = t;
             return d;
@@ -878,9 +878,9 @@ function init() {
         dataset = data;
         console.log(dataset);
 
-        barChart(dataset);
+        //barChart(dataset);
     });
-
+/*
     function barChart() {
         var color = d3.scaleOrdinal(d3.schemeCategory10);
 
