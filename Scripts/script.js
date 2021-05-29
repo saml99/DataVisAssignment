@@ -23,7 +23,7 @@ function init() {
 
     }).then(function (data) {
         dataset = data;
-        console.log(dataset[0].site);
+        console.log(dataset[0]);
 
         lineChart(dataset);
         barChart(dataset);
@@ -886,7 +886,7 @@ function init() {
         var sites = dataset.map(function (d) {return d.site}).filter(unique);
         console.log(sites);
 
-        console.log(dataset);
+        console.log(dataset[0].site);
         console.log(dataset.columns.slice(1));
         console.log(dataset.map(function (d) {return d.year.getFullYear().toString()}).filter(unique));
 
