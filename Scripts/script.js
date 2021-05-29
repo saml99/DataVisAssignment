@@ -880,28 +880,17 @@ function init() {
         BarChartDataset = data;
         console.log(BarChartDataset);
 
-        //barChart(BarChartDataset);
+        barChart(BarChartDataset);
     });
 
     function barChart() {
         var color = d3.scaleOrdinal(d3.schemeCategory10);
 
-        var unique = (value, index, self) => {
-            return self.indexOf(value) === index
-          };
-
-        var sites = dataset.map(function (d) {return d.site}).filter(unique);
-        console.log(sites);
-
-        console.log(dataset.columns.slice(1));
-        console.log(dataset.map(function (d) {return d.year.getFullYear().toString()}).filter(unique));
-
         var series = d3.stack()
-                    .keys(dataset.map(function (d) {return d.year.getFullYear()}).filter(unique))
-                    (dataset);
+                    .keys(BarChartDataset.columns.slice(1))
+                    (BarChartDataset);
 
         console.log(series);
-        console.log(series[0]);
 
         var xScale = d3.scaleBand()
             .domain(dataset.map(function (d) { return d.site }))
