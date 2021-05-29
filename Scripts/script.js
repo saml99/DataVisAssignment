@@ -877,6 +877,11 @@ function init() {
     };
 
     function barChart() {
+        var color = d3.scaleOrdinal(d3.schemeCategory10);
+
+        var stack = d3.stack()
+                    .keys([d.year]);
+
         var xScale = d3.scaleBand()
             .domain(dataset.map(function (d) { return d.site }))
             .range([padding, w])
