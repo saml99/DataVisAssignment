@@ -879,7 +879,7 @@ function init() {
     function barChart() {
         var color = d3.scaleOrdinal(d3.schemeCategory10);
 
-        const unique = (value, index, self) => {
+        var unique = (value, index, self) => {
             return self.indexOf(value) === index
           }
 
@@ -899,7 +899,10 @@ function init() {
             .paddingInner(0.05);
 
         var yScale = d3.scaleLinear()
-            .domain([0, d3.max(dataset, function (d) { return d.total; })]) //defines max possible input data value in the domain
+            .domain([0, d3.max(dataset, function (d) { 
+                console.log(d.site);
+                return d.total; 
+            })]) //defines max possible input data value in the domain
             .range([h - padding, 0]);
 
         var xAxis = d3.axisBottom()
