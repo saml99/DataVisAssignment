@@ -953,9 +953,7 @@ function init() {
                         .data(series)
                         .enter()
                         .append("g")
-                        .style("fill", function(d, i) {
-                            return color(i);
-                        });
+                        .style("fill", "blue");
 
         groups.selectAll("rect")
             .data(function (d) { return d; })
