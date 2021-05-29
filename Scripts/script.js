@@ -893,7 +893,7 @@ function init() {
                     .keys(dataset.map(function (d) {return d.year.getFullYear()}).filter(unique))
                     (dataset);
 
-        console.log(series);
+        console.log(series[0]);
 
         var xScale = d3.scaleBand()
             .domain(dataset.map(function (d) { return d.site }))
