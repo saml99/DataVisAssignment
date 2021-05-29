@@ -870,7 +870,7 @@ function init() {
         });
     };
 
-    d3.csv("BarChartData.csv", function(d, i, columns) {
+    /*d3.csv("BarChartData.csv", function(d, i, columns) {
             for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
             d.total = t;
             return d;
@@ -976,7 +976,7 @@ function init() {
             .attr("x",0 - (h / 2))
             .attr("dy", "1em")
             .text("Total Waste");
-    };
+    };*/
 }
 
 window.onload = init;
