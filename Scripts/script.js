@@ -893,21 +893,12 @@ function init() {
         console.log(series);
 
         var xScale = d3.scaleBand()
-            .domain(dataset.map(function (d) { return d.site }))
+            .domain(BarChartDataset.map(function (d) { return d.site }))
             .range([padding, w])
             .paddingInner(0.05);
 
         var yScale = d3.scaleLinear()
-            .domain([0, d3.max(sites, function (d) { 
-                console.log(d);
-                total = 0;
-                for (i = 0; i < dataset.length; i++) {
-                    if (dataset[i].site == d) {
-                        total = total + dataset[i].total;
-                    }
-                }
-                return total;
-            })]) //defines max possible input data value in the domain
+            .domain([0, d3.max(BarChartDataset, function (d) { return d.total; })]) //defines max possible input data value in the domain
             .range([h - padding, 0]);
 
         var xAxis = d3.axisBottom()
