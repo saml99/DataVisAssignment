@@ -969,7 +969,7 @@ function init() {
             })
             .attr("width", xScale.bandwidth())
             .attr("height", function (d) {
-                return h - yScale(d.total) - padding;
+                return yScale(d[0]) - yScale(d[1]);
             })
             .style("fill", "blue")
     };
