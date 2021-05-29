@@ -880,7 +880,9 @@ function init() {
         var color = d3.scaleOrdinal(d3.schemeCategory10);
 
         var stack = d3.stack()
-                    .keys([d.year]);
+                    .keys(dataset.columns.slice(1))(dataset);
+
+        console.log(stack);
 
         var xScale = d3.scaleBand()
             .domain(dataset.map(function (d) { return d.site }))
