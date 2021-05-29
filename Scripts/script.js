@@ -13,7 +13,7 @@ function init() {
 
     d3.csv("WasteData.csv", function (d) {
         return {
-            year: d.year,
+            year: new Date(d.year),
             site: d.Site_Name,
             numOfSites: +d.Number_of_Sites,
             total: parseInt(+d.Number_of_Items_Found),
@@ -884,7 +884,7 @@ function init() {
           }
 
         console.log(dataset);
-        console.log(dataset.map(function (d) {return d.year}).filter(unique));
+        console.log(dataset.map(function (d) {return d.year.getFullYear}));
 
         var series = d3.stack()
                     .keys(dataset.map(function (d) {return d.year}));
