@@ -904,11 +904,9 @@ function init() {
             .domain([0, d3.max(sites, function (d) { 
                 console.log(d);
                 total = 0;
-                for (i = 0; dataset.length; i++) {
-                    console.log(typeof dataset[i].site);
-                    var site = dataset[i].site;
-                    if (site == d) {
-                        total = total + dataset[i].total
+                for (i = 0; i < dataset.length; i++) {
+                    if (dataset[i].site == d) {
+                        total = total + dataset[i].total;
                     }
                 }
                 return total;
