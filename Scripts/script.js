@@ -1080,7 +1080,7 @@ function init() {
                 return d.total; 
             })
             .attr("x", function (d) {
-                return xScale(d.site) + xScale.bandwidth/2;
+                return xScale(d.site);
             })
             .attr("y", 100);
 
