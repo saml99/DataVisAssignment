@@ -1079,6 +1079,7 @@ function init() {
             .append("text")
             .attr("class", "text")
             .attr("text-anchor", "middle")
+            .merge(text)
             .text(function (d) { 
                 console.log(d.total);
                 return d.total; })
