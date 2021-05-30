@@ -1028,9 +1028,7 @@ function init() {
             .paddingInner(0.05);
 
         var yScale = d3.scaleLinear()
-            .domain([0, d3.max(BarChartDataset, function (d) { 
-                console.log(d.total);
-                return d.total; })]) //defines max possible input data value in the domain
+            .domain([0, d3.max(BarChartDataset, function (d) { return d.total; })]) //defines max possible input data value in the domain
             .range([h - padding, 0]);
 
         var xAxis = d3.axisBottom()
@@ -1074,15 +1072,9 @@ function init() {
             .data(BarChartDataset)
             .enter()
             .append("text")
-            .attr("x", function (d) {
-                var xPosition = parseFloat(d3.select(this).attr("x"));
-                return xPosition + 5;
-            })
-            .attr("y", function (d) {
-                console.log(d);
-                return d;
-            })
-            .text(d);
+            .attr("x", parseFloat(d3.select(this).attr("x")) + 5)
+            .attr("y", function (d) { return d.total + 15; })
+            .text(function (d) { return d.total; });
 
         //Creates the x-axis
         svg.append("g")
