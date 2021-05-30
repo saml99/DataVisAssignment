@@ -1078,10 +1078,11 @@ function init() {
             .attr("class", "text")
             .attr("text-anchor", "middle")
             .merge(text)
-            .text(function (d) { 
-                console.log(d.total);
-                return d.total; })
+            .text(function (d) {
+                return d.total; 
+            })
             .attr("x", function (d) {
+                console.log(xScale(d));
                 return xScale(d) + xScale.bandwidth()/2;
             })
             .attr("y", function (d) { 
