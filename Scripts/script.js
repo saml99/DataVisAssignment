@@ -1072,7 +1072,7 @@ function init() {
         console.log(series);
 
         var text = svg.selectAll("text")
-			.data(BarChartDataset);
+			.data(BarChartDataset, function (d) { return d.site; });
 
         text.enter()
             .append("text")
@@ -1084,7 +1084,7 @@ function init() {
             })
             .attr("x", function (d) {
                 console.log(xScale(d.site));
-                return xScale(d.site) + xScale.bandwidth()/2;
+                return xScale(d.site);
             })
             .attr("y", function (d) { 
                 console.log(d.total);
