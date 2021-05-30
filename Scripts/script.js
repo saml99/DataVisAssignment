@@ -1074,6 +1074,7 @@ function init() {
             .data(BarChartDataset)
             .enter()
             .append("text")
+            .attr("class", "text")
             .attr("text-anchor", "middle")
             .text(function (d) { 
                 console.log(d.total);
