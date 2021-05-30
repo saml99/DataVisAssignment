@@ -1080,13 +1080,13 @@ function init() {
                 return d.total; 
             })
             .attr("x", function (d) {
-                console.log(xScale(d.site));
                 return xScale(d.site);
             })
-            .attr("y", function (d) { 
-                console.log(d.total);
+            .attr("y", function (d) {
                 return d.total - 5; 
-            });
+            })
+            .style("font-size", "10px")
+            .style("fill", "green");
 
         //Creates the x-axis
         svg.append("g")
