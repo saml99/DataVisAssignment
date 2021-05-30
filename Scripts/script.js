@@ -1072,7 +1072,7 @@ function init() {
             .data(BarChartDataset)
             .enter()
             .append("text")
-            .attr("x", parseFloat(d3.select(this).attr("x")) + 5)
+            .attr("x", function (d) { return xScale(d) + x.bandwidth()/2; })
             .attr("y", function (d) { return d.total + 15; })
             .text(function (d) { return d.total; });
 
