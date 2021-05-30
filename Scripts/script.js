@@ -1079,10 +1079,10 @@ function init() {
             .text(function (d) {
                 return d.total; 
             })
-            .attr("x", 100)
-            .attr("y",100)
-            .style("font-size", "10px")
-            .style("fill", "green");
+            .attr("x", function (d) {
+                return xScale(d.site) + xScale.bandwidth/2;
+            })
+            .attr("y", 100);
 
         //Creates the x-axis
         svg.append("g")
