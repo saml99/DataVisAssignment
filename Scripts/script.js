@@ -1077,10 +1077,7 @@ function init() {
             .text(function (d) { 
                 console.log(d.total);
                 return d.total; })
-            .attr("x", function (d) { 
-                console.log(d);
-                return 100; 
-            })
+            .attr("x", 100)
             .attr("y", function (d) { 
                 console.log(d.total);
                 return d.total; 
