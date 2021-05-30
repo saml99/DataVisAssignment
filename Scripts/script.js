@@ -1072,8 +1072,13 @@ function init() {
             .data(BarChartDataset)
             .enter()
             .append("text")
-            .attr("x", function (d) { return xScale(d); })
-            .attr("y", function (d) { return d.total + 15; })
+            .attr("x", function (d) { 
+                console.log(xScale(d));
+                return xScale(d); 
+            })
+            .attr("y", function (d) { 
+                console.log(d.total);
+                return d.total + 15; })
             .text(function (d) { return d.total; });
 
         //Creates the x-axis
