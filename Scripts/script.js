@@ -1041,7 +1041,7 @@ function init() {
         var svg = d3.select("#barChart")
             .append("svg")
             .attr("width", w + 2 * padding)
-            .attr("height", h + padding)
+            .attr("height", h + 2 * padding)
             .append("g")
             .attr("transform", "translate(" + padding + " ,0)");
 
