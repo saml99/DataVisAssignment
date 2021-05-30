@@ -1084,7 +1084,7 @@ function init() {
             })
             .attr("x", function (d) {
                 console.log(xScale(d));
-                return xScale(d) + xScale.bandwidth()/2;
+                return xScale(d.site) + xScale.bandwidth()/2;
             })
             .attr("y", function (d) { 
                 console.log(d.total);
