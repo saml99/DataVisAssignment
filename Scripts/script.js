@@ -1076,7 +1076,7 @@ function init() {
             .append("text")
             .attr("x", function (d) { 
                 console.log(d);
-                return xScale(d); 
+                return xScale(d) + xScale.bandwidth()/2; 
             })
             .attr("y", function (d) { 
                 console.log(d.total);
