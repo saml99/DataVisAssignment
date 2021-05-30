@@ -1073,7 +1073,7 @@ function init() {
         svg.append("g")
             .data(BarChartDataset)
             .enter()
-            .append("text")
+            .selectAll("text")
             .attr("x", function (d) { 
                 console.log(d);
                 return xScale(d); 
