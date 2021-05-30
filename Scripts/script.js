@@ -1073,7 +1073,7 @@ function init() {
             .enter()
             .append("text")
             .attr("x", function (d) { 
-                console.log(xScale(d));
+                console.log(d);
                 return xScale(d); 
             })
             .attr("y", function (d) { 
