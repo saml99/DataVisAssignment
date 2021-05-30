@@ -1000,7 +1000,9 @@ function init() {
             }
         });
     };
+
     var BarChartDataset;
+
     d3.csv("BarChartData.csv", function(d, i, columns) {
             for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
             d.total = t;
@@ -1063,7 +1065,8 @@ function init() {
             .attr("width", xScale.bandwidth())
             .attr("height", function (d) {
                 return yScale(d[0]) - yScale(d[1]);
-            });
+            })
+            attr("class", "bar");
 
         //Creates the x-axis
         svg.append("g")
