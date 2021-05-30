@@ -1076,8 +1076,8 @@ function init() {
                 var xPosition = parseFloat(d3.select(this).attr("x"));
                 return xPosition + 5;
             })
-            .attr("y", function (d, i) {
-                console.log(d[i]);
+            .attr("y", function (d) {
+                console.log(d[0]);
                 return d;
             })
             .text(d);
