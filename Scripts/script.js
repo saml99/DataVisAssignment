@@ -1070,8 +1070,8 @@ function init() {
 
         console.log(series);
 
-        var text = svg.selectAll(".text")
-			.data(BarChartDataset, function (d) { return d.Site_Name; } );
+        var text = svg.selectAll("text")
+			.data(BarChartDataset);
 
         text.enter()
             .append("text")
