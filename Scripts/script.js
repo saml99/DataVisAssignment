@@ -1078,7 +1078,7 @@ function init() {
             .append("text")
             .attr("x", function (d) { 
                 console.log(d);
-                return 0; 
+                return 100; 
             })
             .attr("y", function (d) { 
                 console.log(d.total);
