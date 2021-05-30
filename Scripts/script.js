@@ -1020,7 +1020,7 @@ function init() {
                     .keys(BarChartDataset.columns.slice(1))
                     (BarChartDataset);
 
-        console.log(BarChartDataset.rows);
+        console.log(BarChartDataset);
 
         var xScale = d3.scaleBand()
             .domain(BarChartDataset.map(function (d) { return d.site }))
@@ -1069,7 +1069,7 @@ function init() {
             .attr("class", "bar");
 
         svg.selectAll("g")
-            .data(BarChartDataset.rows)
+            .data(BarChartDataset)
             .enter()
             .append("text")
             .attr("x", function (d) {
