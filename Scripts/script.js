@@ -1070,20 +1070,21 @@ function init() {
 
         console.log(series);
 
-        svg.append("text")
+        svg.append("g")
             .data(BarChartDataset)
             .enter()
             .append("text")
+            .text(function (d) { 
+                console.log(d.total);
+                return d.total; })
             .attr("x", function (d) { 
                 console.log(d);
                 return 100; 
             })
             .attr("y", function (d) { 
                 console.log(d.total);
-                return d.total; })
-            .text(function (d) { 
-                console.log(d.total);
-                return d.total; });
+                return d.total; 
+            });
 
         //Creates the x-axis
         svg.append("g")
