@@ -1076,13 +1076,15 @@ function init() {
 
         text.enter()
             .append("text")
+            .attr("text-anchor", "middle")
             .text(function (d) {
                 return d.total; 
             })
             .attr("x", function (d) {
                 return xScale(d.site);
             })
-            .attr("y", 100);
+            .attr("y", 100)
+            .attr("font-size", "10px");
 
         //Creates the x-axis
         svg.append("g")
