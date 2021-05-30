@@ -1081,10 +1081,12 @@ function init() {
             .text(function (d) { 
                 console.log(d.total);
                 return d.total; })
-            .attr("x", 100)
+            .attr("x", function (d) {
+                return xScale(d.Site_Name) + xScale.bandwidth()/2;
+            })
             .attr("y", function (d) { 
                 console.log(d.total);
-                return d.total; 
+                return d.total - 5; 
             });
 
         //Creates the x-axis
