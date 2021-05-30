@@ -1000,7 +1000,9 @@ function init() {
             }
         });
     };
+
     var BarChartDataset;
+
     d3.csv("BarChartData.csv", function (d, i, columns) {
         for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
         d.total = t;
@@ -1018,7 +1020,7 @@ function init() {
             .keys(BarChartDataset.columns.slice(1))
             (BarChartDataset);
 
-        console.log(series);
+        console.log(BarChartDataset);
 
         var xScale = d3.scaleBand()
             .domain(BarChartDataset.map(function (d) { return d.site }))
@@ -1063,7 +1065,22 @@ function init() {
             .attr("width", xScale.bandwidth())
             .attr("height", function (d) {
                 return yScale(d[0]) - yScale(d[1]);
-            });
+            })
+            .attr("class", "bar");
+
+        svg.selectAll("g")
+            .data(BarChartDataset)
+            .enter()
+            .append("text")
+            .attr("x", function (d) {
+                var xPosition = parseFloat(d3.select(this).attr("x"));
+                return xPosition + 5;
+            })
+            .attr("y", function (d) {
+                console.log(d[0]);
+                return d;
+            })
+            .text(d);
 
         //Creates the x-axis
         svg.append("g")
@@ -1087,6 +1104,27 @@ function init() {
             .attr("x", 0 - (h / 2))
             .attr("dy", "1em")
             .text("Total Waste");
+
+        var legend = svg.append("g")
+            .attr("text-anchor", "end")
+            .selectAll("g")
+            .data(BarChartDataset.columns.slice(1))
+            .enter()
+            .append("g")
+            .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+
+        legend.append("rect")
+            .attr("x", w - 20)
+            .attr("width", 20)
+            .attr("height", 20)
+            .attr("fill", color);
+
+        legend.append("text")
+            .attr("x", w - 25)
+            .attr("y", 10)
+            .attr("dy", "0.32em")
+            .text(function (d) { return d; });
+
     };
 }
 
