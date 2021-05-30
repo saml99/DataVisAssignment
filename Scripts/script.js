@@ -1028,7 +1028,9 @@ function init() {
             .paddingInner(0.05);
 
         var yScale = d3.scaleLinear()
-            .domain([0, d3.max(BarChartDataset, function (d) { return d.total; })]) //defines max possible input data value in the domain
+            .domain([0, d3.max(BarChartDataset, function (d) { 
+                console.log(d.total);
+                return d.total; })]) //defines max possible input data value in the domain
             .range([h - padding, 0]);
 
         var xAxis = d3.axisBottom()
@@ -1077,7 +1079,7 @@ function init() {
                 return xPosition + 5;
             })
             .attr("y", function (d) {
-                console.log(d[0]);
+                console.log(d);
                 return d;
             })
             .text(d);
