@@ -1068,6 +1068,8 @@ function init() {
             })
             .attr("class", "bar");
 
+        console.log(BarChartDataset);
+
         svg.selectAll("g")
             .data(BarChartDataset)
             .enter()
