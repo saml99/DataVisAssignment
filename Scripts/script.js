@@ -1082,7 +1082,7 @@ function init() {
                 console.log(d.total);
                 return d.total; })
             .attr("x", function (d) {
-                return xScale(d.Site_Name) + xScale.bandwidth()/2;
+                return xScale(d) + xScale.bandwidth()/2;
             })
             .attr("y", function (d) { 
                 console.log(d.total);
