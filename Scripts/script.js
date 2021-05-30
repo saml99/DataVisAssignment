@@ -1075,6 +1075,7 @@ function init() {
             .selectAll("g")
             .data(BarChartDataset)
             .enter()
+            .append("text")
             .attr("x", function (d) { 
                 console.log(d);
                 return xScale(d); 
