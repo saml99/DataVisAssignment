@@ -1020,7 +1020,7 @@ function init() {
                     .keys(BarChartDataset.columns.slice(1))
                     (BarChartDataset);
 
-        console.log(series);
+        console.log(BarChartDataset.rows.slice(1));
 
         var xScale = d3.scaleBand()
             .domain(BarChartDataset.map(function (d) { return d.site }))
@@ -1110,6 +1110,7 @@ function init() {
                 .attr("y", 10)
                 .attr("dy", "0.32em")
                 .text(function(d) { return d; });
+
     };
 }
 
