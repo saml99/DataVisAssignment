@@ -1070,12 +1070,11 @@ function init() {
 
         console.log(series);
 
-        svg.append("g")
+        svg.append("text")
             .attr("text-anchor", "middle")
             .selectAll("g")
             .data(BarChartDataset)
             .enter()
-            .append("text")
             .attr("x", function (d) { 
                 console.log(d);
                 return xScale(d); 
