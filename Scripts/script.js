@@ -1071,8 +1071,6 @@ function init() {
         console.log(series);
 
         svg.append("text")
-            .attr("text-anchor", "middle")
-            .selectAll("g")
             .data(BarChartDataset)
             .enter()
             .append("text")
