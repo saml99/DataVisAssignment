@@ -1066,7 +1066,7 @@ function init() {
             .attr("height", function (d) {
                 return yScale(d[0]) - yScale(d[1]);
             })
-            attr("class", "bar");
+            .attr("class", "bar");
 
         //Creates the x-axis
         svg.append("g")
