@@ -1081,7 +1081,7 @@ function init() {
                 return d.total; 
             })
             .attr("x", function (d) {
-                return xScale(d.site) + xScale.bandwidth();
+                return xScale(d.site) + xScale.bandwidth()/2;
             })
             .attr("y", 100)
             .attr("font-size", "10px");
