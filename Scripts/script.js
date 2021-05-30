@@ -1076,7 +1076,7 @@ function init() {
 
         text.enter()
             .append("text")
-            .attr("text-anchor", "middle")
+            //.attr("text-anchor", "middle")
             .text(function (d) {
                 return d.total; 
             })
