@@ -1104,6 +1104,12 @@ function init() {
                 .attr("width", 20)
                 .attr("height", 20)
                 .attr("fill", color);
+
+        legend.append("text")
+                .attr("x", w - 25)
+                .attr("y", 10)
+                .attr("dy", "0.32em")
+                .text(function(d) { return d; });
     };
 }
 
