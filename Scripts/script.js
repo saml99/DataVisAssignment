@@ -1043,7 +1043,7 @@ function init() {
             .attr("width", w + 2 * padding)
             .attr("height", h + 2 * padding)
             .append("g")
-            .attr("transform", "translate(" + padding + " ,0)");
+            .attr("transform", "translate(" + padding + ", " + padding +")");
 
         var groups = svg.selectAll("g")
             .data(series)
