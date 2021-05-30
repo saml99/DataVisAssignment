@@ -1071,7 +1071,7 @@ function init() {
         console.log(series);
 
         var text = svg.selectAll(".text")
-			.data(BarChartDataset);
+			.data(BarChartDataset, function (d) { return d.Site_Name} );
 
 		text.exit().remove()
 
