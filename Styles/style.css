@@ -140,5 +140,5 @@ div.tooltip {
 }
 
 .bar:hover {
-    border: black;
+    stroke: black;
 }
