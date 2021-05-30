@@ -1070,10 +1070,10 @@ function init() {
 
         console.log(series);
 
-        svg.append("text")
+        svg.selectAll("g")
             .data(BarChartDataset)
             .enter()
-            .append("g")
+            .append("text")
             .attr("x", function (d) { 
                 console.log(d);
                 return xScale(d); 
