@@ -1071,13 +1071,12 @@ function init() {
         console.log(series);
 
         svg.append("g")
-            .selectAll("text")
             .data(BarChartDataset)
             .enter()
             .append("text")
             .attr("x", function (d) { 
                 console.log(d);
-                return xScale(d) + xScale.bandwidth()/2; 
+                return xScale(d); 
             })
             .attr("y", function (d) { 
                 console.log(d.total);
