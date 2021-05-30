@@ -1079,7 +1079,9 @@ function init() {
             .attr("y", function (d) { 
                 console.log(d.total);
                 return d.total + 15; })
-            .text(function (d) { return d.total; });
+            .text(function (d) { 
+                console.log(d.total);
+                return d.total; });
 
         //Creates the x-axis
         svg.append("g")
