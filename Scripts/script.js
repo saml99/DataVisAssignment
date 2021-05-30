@@ -1071,7 +1071,7 @@ function init() {
         console.log(series);
 
         svg.selectAll("g")
-            .data(BarChartDataset)
+            .data(function(d) {return d;})
             .enter()
             .append("text")
             .attr("x", function (d) { 
