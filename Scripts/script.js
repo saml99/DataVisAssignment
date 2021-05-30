@@ -1083,7 +1083,9 @@ function init() {
             .attr("x", function (d) {
                 return xScale(d.site) + xScale.bandwidth()/2;
             })
-            .attr("y", 100)
+            .attr("y", function (d) {
+                return yScale(d.total) - 5;
+            })
             .attr("font-size", "10px");
 
         //Creates the x-axis
