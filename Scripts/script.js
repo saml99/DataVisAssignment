@@ -1080,7 +1080,7 @@ function init() {
             })
             .attr("y", function (d) { 
                 console.log(d.total);
-                return d.total + 15; })
+                return d.total; })
             .text(function (d) { 
                 console.log(d.total);
                 return d.total; });
