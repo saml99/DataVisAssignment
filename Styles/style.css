@@ -140,5 +140,5 @@ div.tooltip {
 }
 
 .bar:hover {
-    fill: black;
+    border: black;
 }
