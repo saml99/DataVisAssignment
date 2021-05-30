@@ -8,10 +8,9 @@ function init() {
     //declares various variables
     var dataset, xScale, yScale, xAxis, yAxis, area;
 
-
     var formatTime = d3.timeFormat("%Y");
 
-    d3.csv("WasteData.csv", function (d) {
+    d3.csv("LinePlotData.csv", function (d) {
         return {
             year: new Date(d.year),
             site: d.Site_Name,
@@ -26,7 +25,6 @@ function init() {
         console.log(dataset[0]);
 
         lineChart(dataset);
-        barChart(dataset);
     });
 
     function lineChart() {
@@ -1002,15 +1000,33 @@ function init() {
             }
         });
     };
+    var BarChartDataset;
+    d3.csv("BarChartData.csv", function(d, i, columns) {
+            for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+            d.total = t;
+            return d;
+    }).then(function (data) {
+        BarChartDataset = data;
+        console.log(BarChartDataset);
+        barChart(BarChartDataset);
+    });
 
     function barChart() {
+        var color = d3.scaleOrdinal(d3.schemeCategory10);
+
+        var series = d3.stack()
+                    .keys(BarChartDataset.columns.slice(1))
+                    (BarChartDataset);
+
+        console.log(series);
+
         var xScale = d3.scaleBand()
-            .domain(dataset.map(function (d) { return d.site }))
+            .domain(BarChartDataset.map(function (d) { return d.site }))
             .range([padding, w])
             .paddingInner(0.05);
 
         var yScale = d3.scaleLinear()
-            .domain([0, d3.max(dataset, function (d) { return d.total; })]) //defines max possible input data value in the domain
+            .domain([0, d3.max(BarChartDataset, function (d) { return d.total; })]) //defines max possible input data value in the domain
             .range([h - padding, 0]);
 
         var xAxis = d3.axisBottom()
@@ -1021,10 +1037,33 @@ function init() {
 
         var svg = d3.select("#barChart")
             .append("svg")
-            .attr("width", w + padding)
+            .attr("width", w + 2 * padding)
             .attr("height", h + padding)
             .append("g")
             .attr("transform", "translate(" + padding + " ,0)");
+
+        var groups = svg.selectAll("g")
+            .data(series)
+            .enter()
+            .append("g")
+            .style("fill", function (d) {
+                return color(d.key);
+            });
+
+        groups.selectAll("rect")
+            .data(function (d) { return d; })
+            .enter()
+            .append("rect")
+            .attr("x", function (d) {
+                return xScale(d.data.site);
+            })
+            .attr("y", function (d) {
+                return yScale(d[1]);
+            })
+            .attr("width", xScale.bandwidth())
+            .attr("height", function (d) {
+                return yScale(d[0]) - yScale(d[1]);
+            });
 
         //Creates the x-axis
         svg.append("g")
@@ -1048,22 +1087,6 @@ function init() {
             .attr("x", 0 - (h / 2))
             .attr("dy", "1em")
             .text("Total Waste");
-
-        svg.selectAll("rect")
-            .data(dataset)
-            .enter()
-            .append("rect")
-            .attr("x", function (d, i) {
-                return xScale(d.site);
-            })
-            .attr("y", function (d) {
-                return yScale(d.total);
-            })
-            .attr("width", xScale.bandwidth())
-            .attr("height", function (d) {
-                return h - yScale(d.total) - padding;
-            })
-            .style("fill", "blue")
     };
 }
 
