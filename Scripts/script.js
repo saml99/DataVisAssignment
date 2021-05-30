@@ -1068,6 +1068,20 @@ function init() {
             })
             .attr("class", "bar");
 
+        svg.selectAll("g")
+            .data(BarChartDataset.rows)
+            .enter()
+            .append("text")
+            .attr("x", function (d) {
+                var xPosition = parseFloat(d3.select(this).attr("x"));
+                return xPosition + 5;
+            })
+            .attr("y", function (d, i) {
+                console.log(d[i]);
+                return d;
+            })
+            .text(d);
+
         //Creates the x-axis
         svg.append("g")
             .attr("class", "axis")
