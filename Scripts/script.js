@@ -106,7 +106,7 @@ function init() {
             .attr("y", 0 - (padding / 2))
             .attr("x", 0 - (h / 2))
             .attr("dy", "1em")
-            .text("Total Waste");
+            .text("Waste Per Year");
 
         var mouseover = function (event, d) {
             div.transition()
@@ -1003,10 +1003,10 @@ function init() {
 
     var BarChartDataset;
 
-    d3.csv("BarChartData.csv", function(d, i, columns) {
-            for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
-            d.total = t;
-            return d;
+    d3.csv("BarChartData.csv", function (d, i, columns) {
+        for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+        d.total = t;
+        return d;
     }).then(function (data) {
         BarChartDataset = data;
         console.log(BarChartDataset);
@@ -1017,8 +1017,8 @@ function init() {
         var color = d3.scaleOrdinal(d3.schemeCategory10);
 
         var series = d3.stack()
-                    .keys(BarChartDataset.columns.slice(1))
-                    (BarChartDataset);
+            .keys(BarChartDataset.columns.slice(1))
+            (BarChartDataset);
 
         console.log(BarChartDataset);
 
@@ -1100,24 +1100,24 @@ function init() {
             .text("Total Waste");
 
         var legend = svg.append("g")
-                        .attr("text-anchor", "end")
-                        .selectAll("g")
-                        .data(BarChartDataset.columns.slice(1))
-                        .enter()
-                        .append("g")
-                        .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+            .attr("text-anchor", "end")
+            .selectAll("g")
+            .data(BarChartDataset.columns.slice(1))
+            .enter()
+            .append("g")
+            .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
 
         legend.append("rect")
-                .attr("x", w-20)
-                .attr("width", 20)
-                .attr("height", 20)
-                .attr("fill", color);
+            .attr("x", w - 20)
+            .attr("width", 20)
+            .attr("height", 20)
+            .attr("fill", color);
 
         legend.append("text")
-                .attr("x", w - 25)
-                .attr("y", 10)
-                .attr("dy", "0.32em")
-                .text(function(d) { return d; });
+            .attr("x", w - 25)
+            .attr("y", 10)
+            .attr("dy", "0.32em")
+            .text(function (d) { return d; });
 
     };
 }
