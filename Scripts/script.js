@@ -1079,12 +1079,8 @@ function init() {
             .text(function (d) {
                 return d.total; 
             })
-            .attr("x", function (d) {
-                return xScale(d.site);
-            })
-            .attr("y", function (d) {
-                return d.total - 5; 
-            })
+            .attr("x", 100)
+            .attr("y",100)
             .style("font-size", "10px")
             .style("fill", "green");
 
