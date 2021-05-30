@@ -1090,6 +1090,19 @@ function init() {
             .attr("x", 0 - (h / 2))
             .attr("dy", "1em")
             .text("Total Waste");
+
+        var legend = svg.append("g")
+                        .attr("text-anchor", "end")
+                        .selectAll("g")
+                        .data(BarChartDataset.columns.slice(1))
+                        .enter()
+                        .append("g");
+
+        legend.append("rect")
+                .attr("x", w-20)
+                .attr("width", 20)
+                .attr("height", 20)
+                .attr("fill", color);
     };
 }
 
