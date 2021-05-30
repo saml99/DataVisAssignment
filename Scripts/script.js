@@ -1081,7 +1081,7 @@ function init() {
                 return d.total; 
             })
             .attr("x", function (d) {
-                return xScale(d.site);
+                return xScale(d.site) + 10;
             })
             .attr("y", 100)
             .attr("font-size", "10px");
