@@ -1023,9 +1023,10 @@ function init() {
         console.log(series);
 
         var xScale = d3.scaleBand()
-            .domain(BarChartDataset.map(function (d) { return d.site }))
             .range([padding, w])
             .paddingInner(0.05);
+
+        xScale.domain(BarChartDataset.map(function (d) { return d.site }));
 
         var yScale = d3.scaleLinear()
             .domain([0, d3.max(BarChartDataset, function (d) { return d.total; })]) //defines max possible input data value in the domain
