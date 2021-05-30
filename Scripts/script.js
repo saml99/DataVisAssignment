@@ -1096,7 +1096,8 @@ function init() {
                         .selectAll("g")
                         .data(BarChartDataset.columns.slice(1))
                         .enter()
-                        .append("g");
+                        .append("g")
+                        .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
         legend.append("rect")
                 .attr("x", w-20)
