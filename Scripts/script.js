@@ -1072,7 +1072,7 @@ function init() {
                 return yScale(d[0]) - yScale(d[1]);
             })
             .attr("class", "bar")
-            on("mouseover", function() { tooltip.style("display", null); })
+            .on("mouseover", function() { tooltip.style("display", null); })
             .on("mouseout", function() { tooltip.style("display", "none"); })
             .on("mousemove", function(d) {
                 var xPosition = d3.mouse(this)[0] - 15;
