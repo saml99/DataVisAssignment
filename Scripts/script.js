@@ -1075,8 +1075,8 @@ function init() {
             .on("mouseover", function() { tooltip.style("display", null); })
             .on("mouseout", function() { tooltip.style("display", "none"); })
             .on("mousemove", function(event, d) {
-                var xPosition = d3.pointer(event) - 15;
-                var yPosition = d3.pointer(event) - 25;
+                var xPosition = d3.pointer(event)[0] - 15;
+                var yPosition = d3.pointer(event)[1] - 25;
                 console.log(xPosition);
                 tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
                 tooltip.select("text").text(d[1]);
