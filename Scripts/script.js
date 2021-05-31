@@ -1161,7 +1161,7 @@ function init() {
             .style("opacity", 0.5);
           
         tooltip.append("text")
-            //.attr("x", 15)
+            .attr("x", 5)
             .attr("dy", "1.2em")
             .attr("font-size", "12px")
             .attr("font-weight", "bold");
