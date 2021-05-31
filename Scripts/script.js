@@ -1071,7 +1071,15 @@ function init() {
             .attr("height", function (d) {
                 return yScale(d[0]) - yScale(d[1]);
             })
-            .attr("class", "bar");
+            .attr("class", "bar")
+            on("mouseover", function() { tooltip.style("display", null); })
+            .on("mouseout", function() { tooltip.style("display", "none"); })
+            .on("mousemove", function(d) {
+                var xPosition = d3.mouse(this)[0] - 15;
+                var yPosition = d3.mouse(this)[1] - 25;
+                tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+                tooltip.select("text").text(d[1]);
+            });
 
         console.log(series);
 
@@ -1140,6 +1148,23 @@ function init() {
             .attr("y", 10)
             .attr("dy", "0.32em")
             .text(function (d) { return d; });
+
+        var tooltip = svg.append("g")
+            .attr("class", "tooltip")
+            .style("display", "none");
+              
+        tooltip.append("rect")
+            .attr("width", 30)
+            .attr("height", 20)
+            .attr("fill", "white")
+            .style("opacity", 0.5);
+          
+        tooltip.append("text")
+            .attr("x", 15)
+            .attr("dy", "1.2em")
+            .style("text-anchor", "middle")
+            .attr("font-size", "12px")
+            .attr("font-weight", "bold");
 
     };
 }
