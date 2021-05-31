@@ -1,8 +1,8 @@
 function init() {
 
     //width and Height
-    var w = 800;
-    var h = 400;
+    var w = 850;
+    var h = 500;
     var padding = 60; //padding to allow for an axis
 
     //declares various variables
@@ -87,26 +87,30 @@ function init() {
         svg.append("g")
             .attr("class", "axis")
             .attr("transform", "translate(0," + (h - padding) + ")")
-            .style("stroke-width", "2")
+            .style("stroke-width", "1.5")
+            .style("font-size", "16px")
             .call(xAxis);
 
         svg.append("text")
             .attr("transform", "translate(" + (w / 2) + " ," + (h) + ")")
-            .text("Year");
+            .text("Year")
+            .style("font-size", "22px");
 
         //Creates the y-axis
         svg.append("g")
             .attr("class", "axis")
             .attr("transform", "translate(" + padding + ",0)")
-            .style("stroke-width", "2")
-            .call(yAxis);
+            .style("stroke-width", "1.5")
+            .call(yAxis)
+            .style("font-size", "12px");
 
         svg.append("text")
             .attr("transform", "rotate(-90)")
             .attr("y", 0 - (padding / 2))
-            .attr("x", 0 - (h / 2))
+            .attr("x", 0 - (h - 150))
             .attr("dy", "1em")
-            .text("Waste Per Year");
+            .text("Waste Per Year")
+            .style("font-size", "22px");
 
         var mouseover = function (event, d) {
             div.transition()
@@ -133,7 +137,7 @@ function init() {
                 .transition()
                 .duration(1000)
                 .attr("d", line).attr("id", "Parksid").style("fill", "none")
-                .style("fill-opacity", "0.2").style("stroke", "#FF4136").style("stroke-width", "3");
+                .style("fill-opacity", "0.2").style("stroke", "#FF4136").style("stroke-width", "4");
 
             svg.selectAll("Circles")
                 .data(dataset.filter(function (d) {
@@ -143,7 +147,7 @@ function init() {
                 .append("circle")
                 .attr("cx", function (d) { return xScale(d.year) })
                 .attr("cy", function (d) { return yScale(d.total) })
-                .attr("r", 3)
+                .attr("r", 4)
                 .on("mouseover", mouseover)
                 .on("mouseout", mouseout)
                 .attr("id", "ParksCircle")
@@ -157,7 +161,7 @@ function init() {
                 .attr("fill", "#EEFBFB")
                 .style("fill-opacity", "1")
                 .attr("stroke", "black")
-                .attr("stroke-width", "1.5")
+                .attr("stroke-width", "2")
                 .attr("stroke-opacity", "1");
         }
 
@@ -173,7 +177,7 @@ function init() {
                 .style("fill", "none")
                 .style("fill-opacity", "0.2")
                 .style("stroke", "#FF4136")
-                .style("stroke-width", "3")
+                .style("stroke-width", "4")
                 .transition()
                 .duration(1000)
                 .attr("d", initialline)
@@ -204,7 +208,7 @@ function init() {
                 .style("fill", "none")
                 .style("fill-opacity", "0.2")
                 .style("stroke", "#3D9970")
-                .style("stroke-width", "3");
+                .style("stroke-width", "4");
 
             svg.selectAll("Circles")
                 .data(dataset.filter(function (d) {
@@ -214,7 +218,7 @@ function init() {
                 .append("circle")
                 .attr("cx", function (d) { return xScale(d.year) })
                 .attr("cy", function (d) { return yScale(d.total) })
-                .attr("r", 3)
+                .attr("r", 4)
                 .on("mouseover", mouseover)
                 .on("mouseout", mouseout)
                 .attr("id", "RoadCircle")
@@ -228,7 +232,7 @@ function init() {
                 .attr("fill", "#EEFBFB")
                 .style("fill-opacity", "1")
                 .attr("stroke", "black")
-                .attr("stroke-width", "1.5")
+                .attr("stroke-width", "2")
                 .attr("stroke-opacity", "1");
 
         }
@@ -245,7 +249,7 @@ function init() {
                 .style("fill", "none")
                 .style("fill-opacity", "0.2")
                 .style("stroke", "#3D9970")
-                .style("stroke-width", "3")
+                .style("stroke-width", "4")
                 .transition()
                 .duration(1000)
                 .attr("d", initialline)
@@ -275,7 +279,7 @@ function init() {
                 .style("fill", "none")
                 .style("fill-opacity", "0.2")
                 .style("stroke", "#0074D9")
-                .style("stroke-width", "3");
+                .style("stroke-width", "4");
 
 
             svg.selectAll("Circles")
@@ -286,7 +290,7 @@ function init() {
                 .append("circle")
                 .attr("cx", function (d) { return xScale(d.year) })
                 .attr("cy", function (d) { return yScale(d.total) })
-                .attr("r", 3)
+                .attr("r", 4)
                 .on("mouseover", mouseover)
                 .on("mouseout", mouseout)
                 .attr("id", "WaterCircle")
@@ -300,7 +304,7 @@ function init() {
                 .attr("fill", "#EEFBFB")
                 .style("fill-opacity", "1")
                 .attr("stroke", "black")
-                .attr("stroke-width", "1.5")
+                .attr("stroke-width", "2")
                 .attr("stroke-opacity", "1");
         }
 
@@ -316,7 +320,7 @@ function init() {
                 .style("fill", "none")
                 .style("fill-opacity", "0.2")
                 .style("stroke", "#0074D9")
-                .style("stroke-width", "3")
+                .style("stroke-width", "4")
                 .transition()
                 .duration(1000)
                 .attr("d", initialline)
@@ -346,7 +350,7 @@ function init() {
                 .style("fill", "none")
                 .style("fill-opacity", "0.2")
                 .style("stroke", "#FF851B")
-                .style("stroke-width", "3");
+                .style("stroke-width", "4");
 
             svg.selectAll("Circles")
                 .data(dataset.filter(function (d) {
@@ -356,7 +360,7 @@ function init() {
                 .append("circle")
                 .attr("cx", function (d) { return xScale(d.year) })
                 .attr("cy", function (d) { return yScale(d.total) })
-                .attr("r", 3)
+                .attr("r", 4)
                 .on("mouseover", mouseover)
                 .on("mouseout", mouseout)
                 .attr("id", "BeachCircle")
@@ -370,7 +374,7 @@ function init() {
                 .attr("fill", "#EEFBFB")
                 .style("fill-opacity", "1")
                 .attr("stroke", "black")
-                .attr("stroke-width", "1.5")
+                .attr("stroke-width", "2")
                 .attr("stroke-opacity", "1");
         }
 
@@ -387,7 +391,7 @@ function init() {
                 .style("fill", "none")
                 .style("fill-opacity", "0.2")
                 .style("stroke", "#FF851B")
-                .style("stroke-width", "3")
+                .style("stroke-width", "4")
                 .transition()
                 .duration(1000)
                 .attr("d", initialline)
@@ -417,7 +421,7 @@ function init() {
                 .style("fill", "none")
                 .style("fill-opacity", "0.2")
                 .style("stroke", "#FEB236")
-                .style("stroke-width", "3");
+                .style("stroke-width", "4");
 
             svg.selectAll("Circles")
                 .data(dataset.filter(function (d) {
@@ -427,7 +431,7 @@ function init() {
                 .append("circle")
                 .attr("cx", function (d) { return xScale(d.year) })
                 .attr("cy", function (d) { return yScale(d.total) })
-                .attr("r", 3)
+                .attr("r", 4)
                 .on("mouseover", mouseover)
                 .on("mouseout", mouseout)
                 .attr("id", "BushCircle")
@@ -441,7 +445,7 @@ function init() {
                 .attr("fill", "#EEFBFB")
                 .style("fill-opacity", "1")
                 .attr("stroke", "black")
-                .attr("stroke-width", "1.5")
+                .attr("stroke-width", "2")
                 .attr("stroke-opacity", "1");
         }
 
@@ -457,7 +461,7 @@ function init() {
                 .style("fill", "none")
                 .style("fill-opacity", "0.2")
                 .style("stroke", "#FEB236")
-                .style("stroke-width", "3")
+                .style("stroke-width", "4")
                 .transition()
                 .duration(1000)
                 .attr("d", initialline)
@@ -487,7 +491,7 @@ function init() {
                 .style("fill", "none")
                 .style("fill-opacity", "0.2")
                 .style("stroke", "#6b5b95")
-                .style("stroke-width", "3");
+                .style("stroke-width", "4");
 
             svg.selectAll("Circles")
                 .data(dataset.filter(function (d) {
@@ -497,7 +501,7 @@ function init() {
                 .append("circle")
                 .attr("cx", function (d) { return xScale(d.year) })
                 .attr("cy", function (d) { return yScale(d.total) })
-                .attr("r", 3)
+                .attr("r", 4)
                 .on("mouseover", mouseover)
                 .on("mouseout", mouseout)
                 .attr("id", "SchoolCircle")
@@ -511,7 +515,7 @@ function init() {
                 .attr("fill", "#EEFBFB")
                 .style("fill-opacity", "1")
                 .attr("stroke", "black")
-                .attr("stroke-width", "1.5")
+                .attr("stroke-width", "2")
                 .attr("stroke-opacity", "1");
         }
 
@@ -527,7 +531,7 @@ function init() {
                 .style("fill", "none")
                 .style("fill-opacity", "0.2")
                 .style("stroke", "#6b5b95")
-                .style("stroke-width", "3")
+                .style("stroke-width", "4")
                 .transition()
                 .duration(1000)
                 .attr("d", initialline)
@@ -558,7 +562,7 @@ function init() {
                 .style("fill", "none")
                 .style("fill-opacity", "0.2")
                 .style("stroke", "#001f3f")
-                .style("stroke-width", "3");
+                .style("stroke-width", "4");
 
             svg.selectAll("Circles")
                 .data(dataset.filter(function (d) {
@@ -568,7 +572,7 @@ function init() {
                 .append("circle")
                 .attr("cx", function (d) { return xScale(d.year) })
                 .attr("cy", function (d) { return yScale(d.total) })
-                .attr("r", 3)
+                .attr("r", 4)
                 .on("mouseover", mouseover)
                 .on("mouseout", mouseout)
                 .attr("id", "ShopCircle")
@@ -582,7 +586,7 @@ function init() {
                 .attr("fill", "#EEFBFB")
                 .style("fill-opacity", "1")
                 .attr("stroke", "black")
-                .attr("stroke-width", "1.5")
+                .attr("stroke-width", "2")
                 .attr("stroke-opacity", "1");
 
         }
@@ -599,7 +603,7 @@ function init() {
                 .style("fill", "none")
                 .style("fill-opacity", "0.2")
                 .style("stroke", "#001f3f")
-                .style("stroke-width", "3")
+                .style("stroke-width", "4")
                 .transition()
                 .duration(1000)
                 .attr("d", initialline)
@@ -630,7 +634,7 @@ function init() {
                 .style("fill", "none")
                 .style("fill-opacity", "0.2")
                 .style("stroke", "#d64161")
-                .style("stroke-width", "3");
+                .style("stroke-width", "4");
 
             svg.selectAll("Circles")
                 .data(dataset.filter(function (d) {
@@ -640,7 +644,7 @@ function init() {
                 .append("circle")
                 .attr("cx", function (d) { return xScale(d.year) })
                 .attr("cy", function (d) { return yScale(d.total) })
-                .attr("r", 3)
+                .attr("r", 4)
                 .on("mouseover", mouseover)
                 .on("mouseout", mouseout)
                 .attr("id", "DiveCircle")
@@ -654,7 +658,7 @@ function init() {
                 .attr("fill", "#EEFBFB")
                 .style("fill-opacity", "1")
                 .attr("stroke", "black")
-                .attr("stroke-width", "1.5")
+                .attr("stroke-width", "2")
                 .attr("stroke-opacity", "1");
 
         }
@@ -671,7 +675,7 @@ function init() {
                 .style("fill", "none")
                 .style("fill-opacity", "0.2")
                 .style("stroke", "#d64161")
-                .style("stroke-width", "3")
+                .style("stroke-width", "4")
                 .transition()
                 .duration(1000)
                 .attr("d", initialline)
@@ -702,7 +706,7 @@ function init() {
                 .style("fill", "none")
                 .style("fill-opacity", "0.2")
                 .style("stroke", "#3e4444")
-                .style("stroke-width", "3");
+                .style("stroke-width", "4");
 
             svg.selectAll("Circles")
                 .data(dataset.filter(function (d) {
@@ -712,7 +716,7 @@ function init() {
                 .append("circle")
                 .attr("cx", function (d) { return xScale(d.year) })
                 .attr("cy", function (d) { return yScale(d.total) })
-                .attr("r", 3)
+                .attr("r", 4)
                 .on("mouseover", mouseover)
                 .on("mouseout", mouseout)
                 .attr("id", "OutdoorCircle")
@@ -726,7 +730,7 @@ function init() {
                 .attr("fill", "#EEFBFB")
                 .style("fill-opacity", "1")
                 .attr("stroke", "black")
-                .attr("stroke-width", "1.5")
+                .attr("stroke-width", "2")
                 .attr("stroke-opacity", "1");
 
         }
@@ -742,7 +746,7 @@ function init() {
                 .style("fill", "none")
                 .style("fill-opacity", "0.2")
                 .style("stroke", "#3e4444")
-                .style("stroke-width", "3")
+                .style("stroke-width", "4")
                 .transition()
                 .duration(1000)
                 .attr("d", initialline)
@@ -773,7 +777,7 @@ function init() {
                 .style("fill", "none")
                 .style("fill-opacity", "0.2")
                 .style("stroke", "#405d27")
-                .style("stroke-width", "3");
+                .style("stroke-width", "4");
 
             svg.selectAll("Circles")
                 .data(dataset.filter(function (d) {
@@ -783,7 +787,7 @@ function init() {
                 .append("circle")
                 .attr("cx", function (d) { return xScale(d.year) })
                 .attr("cy", function (d) { return yScale(d.total) })
-                .attr("r", 3)
+                .attr("r", 4)
                 .on("mouseover", mouseover)
                 .on("mouseout", mouseout)
                 .attr("id", "OtherCircle")
@@ -797,7 +801,7 @@ function init() {
                 .attr("fill", "#EEFBFB")
                 .style("fill-opacity", "1")
                 .attr("stroke", "black")
-                .attr("stroke-width", "1.5")
+                .attr("stroke-width", "2")
                 .attr("stroke-opacity", "1");
 
         }
@@ -814,7 +818,7 @@ function init() {
                 .style("fill", "none")
                 .style("fill-opacity", "0.2")
                 .style("stroke", "#405d27")
-                .style("stroke-width", "3")
+                .style("stroke-width", "4")
                 .transition()
                 .duration(1000)
                 .attr("d", initialline)
@@ -1043,7 +1047,7 @@ function init() {
             .attr("width", w + 2 * padding)
             .attr("height", h + 2 * padding)
             .append("g")
-            .attr("transform", "translate(" + padding + ", " + padding +")");
+            .attr("transform", "translate(" + padding + ", " + padding + ")");
 
         var groups = svg.selectAll("g")
             .data(series)
@@ -1072,16 +1076,16 @@ function init() {
         console.log(series);
 
         var text = svg.selectAll("text")
-			.data(BarChartDataset, function (d) { return d.site; });
+            .data(BarChartDataset, function (d) { return d.site; });
 
         text.enter()
             .append("text")
             .attr("text-anchor", "middle")
             .text(function (d) {
-                return d.total; 
+                return d.total;
             })
             .attr("x", function (d) {
-                return xScale(d.site) + xScale.bandwidth()/2;
+                return xScale(d.site) + xScale.bandwidth() / 2;
             })
             .attr("y", function (d) {
                 return yScale(d.total) - 5;
@@ -1092,24 +1096,30 @@ function init() {
         svg.append("g")
             .attr("class", "axis")
             .attr("transform", "translate(0," + (h - padding) + ")")
-            .call(xAxis);
+            .call(xAxis)
+            .style("stroke-width", "1.5")
+            .style("font-size", "11px");
 
         svg.append("text")
             .attr("transform", "translate(" + (w / 2) + " ," + (h) + ")")
-            .text("Site Type");
+            .text("Site Type")
+            .style("font-size", "22px");
 
         //Creates the y-axis
         svg.append("g")
             .attr("class", "axis")
             .attr("transform", "translate(" + padding + ",0)")
-            .call(yAxis);
+            .call(yAxis)
+            .style("stroke-width", "1.5")
+            .style("font-size", "12px");
 
         svg.append("text")
             .attr("transform", "rotate(-90)")
             .attr("y", 0 - (padding / 2))
             .attr("x", 0 - (h / 2))
             .attr("dy", "1em")
-            .text("Total Waste");
+            .text("Total Waste")
+            .style("font-size", "22px");
 
         var legend = svg.append("g")
             .attr("text-anchor", "end")

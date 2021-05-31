@@ -1,25 +1,29 @@
 * {
     font-family: sans-serif;
+    background-color: #F3F3F3;
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 4em;
     font-weight:bold;
     text-align: center;
+    color: #283747;
 }
 
 div.tooltip {
     position: absolute;
     text-align: center;
     width: 100px;
-    height: 60px;
+    height: 72px;
     padding: 2px;
     font: 10px sans-serif;
+    font-weight: bold;
     background: lightsteelblue;
     border: 0px;
     border-radius: 8px;
     pointer-events: none;
 }
+
 
 .btns {
     padding-left: 60px;
@@ -29,21 +33,25 @@ div.tooltip {
 
 .button {
     border: none;
+    white-space: nowrap;
     color: white;
     margin-left: 150px;
-    width: 125px;
-    height: 31px;
+    width: 140px;
+    height: 40px;
     text-align: center;
     display: inline-block;
-    font-size: 12px;
+    font-size: 13px;
+    text-shadow: 1px 1px black;
+    font-weight: bold;
     margin: 4px 2px;
     cursor: pointer;
     border: 2px solid black;
-    -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
   }
 
-  .btnParks {
+  
+.btnParks {
     background-color:#FF4136;
 }
 
@@ -142,3 +150,4 @@ div.tooltip {
 .bar:hover {
     stroke: black;
 }
+
