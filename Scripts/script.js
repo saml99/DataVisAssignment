@@ -1074,9 +1074,9 @@ function init() {
             .attr("class", "bar")
             .on("mouseover", function() { tooltip.style("display", null); })
             .on("mouseout", function() { tooltip.style("display", "none"); })
-            .on("mousemove", function(d) {
-                var xPosition = d3.mouse(this) - 15;
-                var yPosition = d3.mouse(this) - 25;
+            .on("mousemove", function(event, d) {
+                var xPosition = d3.pointer(event) - 15;
+                var yPosition = d3.pointer(event) - 25;
                 console.log(xPosition);
                 tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
                 tooltip.select("text").text(d[1]);
