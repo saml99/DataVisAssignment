@@ -1158,13 +1158,11 @@ function init() {
             .attr("width", 60)
             .attr("height", 20)
             .attr("fill", "white")
-            .attr("transform", "translate(-50%, 50%)")
             .style("opacity", 0.5);
           
         tooltip.append("text")
             .attr("x", 15)
             .attr("dy", "1.2em")
-            .style("text-anchor", "middle")
             .attr("font-size", "12px")
             .attr("font-weight", "bold");
 
