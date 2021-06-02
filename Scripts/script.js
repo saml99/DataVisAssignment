@@ -1079,7 +1079,7 @@ function init() {
                 var yPosition = d3.pointer(event)[1] - 25;
                 console.log(xPosition);
                 tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
-                tooltip.select("text").text(d[1]);
+                tooltip.select("text").text(yScale(d[0]) - yScale(d[1]));
             });
 
         console.log(series);
