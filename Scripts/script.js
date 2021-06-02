@@ -1077,9 +1077,9 @@ function init() {
             .on("mousemove", function(event, d) {
                 var xPosition = d3.pointer(event)[0] - 15;
                 var yPosition = d3.pointer(event)[1] - 25;
-                console.log(xPosition);
+                console.log(d);
                 tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
-                tooltip.select("text").text(yScale(d[0]) - yScale(d[1]));
+                tooltip.select("text").text(d[0] - d[1]);
             });
 
         console.log(series);
