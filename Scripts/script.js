@@ -1155,7 +1155,7 @@ function init() {
             .style("display", "none");
               
         tooltip.append("rect")
-            .attr("width", 45)
+            .attr("width", 50)
             .attr("height", 20)
             .attr("fill", "white")
             .style("opacity", 0.5);
