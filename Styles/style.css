@@ -10,8 +10,8 @@ h1 {
     color: #283747;
 }
 
-.chart {
-    float: left;
+.description {
+    float: right;
 }
 
 div.tooltip {
