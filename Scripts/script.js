@@ -116,7 +116,7 @@ function init() {
             div.transition()
                 .duration(200)
                 .style("opacity", .9);
-            div.html(d.total + "<br> individual items of waste were collected for the area of " + d.site)
+            div.html("Items collected: " + d.total + "<br> In the area of: " + d.site)
                 .style("left", (event.pageX) + "px")
                 .style("top", (event.pageY) + "px");
         }
@@ -1072,9 +1072,9 @@ function init() {
                 return yScale(d[0]) - yScale(d[1]);
             })
             .attr("class", "bar")
-            .on("mouseover", function() { tooltip.style("display", null); })
-            .on("mouseout", function() { tooltip.style("display", "none"); })
-            .on("mousemove", function(event, d) {
+            .on("mouseover", function () { tooltip.style("display", null); })
+            .on("mouseout", function () { tooltip.style("display", "none"); })
+            .on("mousemove", function (event, d) {
                 var xPosition = d3.pointer(event)[0] - 15;
                 var yPosition = d3.pointer(event)[1] - 25;
                 console.log(d);
@@ -1153,13 +1153,13 @@ function init() {
         var tooltip = svg.append("g")
             .attr("class", "tooltip")
             .style("display", "none");
-              
+
         tooltip.append("rect")
             .attr("width", 50)
             .attr("height", 20)
             .attr("fill", "white")
             .style("opacity", 0.5);
-          
+
         tooltip.append("text")
             .attr("x", 5)
             .attr("dy", "1.2em")
