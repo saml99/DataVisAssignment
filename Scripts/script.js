@@ -831,7 +831,19 @@ function init() {
 
         }
 
-        var parks = false, road = false, water = false, beach = false, bush = false, school = false, shops = false, dive = false, outdoor = false, other = false;
+        ParkFunction();
+        RoadFunction();
+        WaterFunction();
+        BeachFunction();
+        BushFunction();
+        SchoolFunction();
+        ShopsFunction();
+        DiveFunction();
+        OutDoorFunction();
+        OtherFunction();
+
+
+        var parks = true, road = true, water = true, beach = true, bush = true, school = true, shops = true, dive = true, outdoor = true, other = true;
 
         d3.select("#Park").on("click", function () {
             if (parks == false) {

@@ -161,3 +161,14 @@ table, th, td {
     text-align: left;
 }
 
+.description {
+    font-size: 18px;
+}
+
+h2 {
+   color: #932432;
+}
+
+footer {
+    text-align: center;
+}
