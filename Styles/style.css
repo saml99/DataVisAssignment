@@ -153,5 +153,11 @@ div.tooltip {
 
 .bar:hover {
     stroke: black;
+    stroke-width: 2.5px;
+}
+
+table, th, td {
+    vertical-align: top;
+    text-align: left;
 }
 
