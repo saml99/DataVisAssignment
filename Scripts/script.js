@@ -60,16 +60,6 @@ function init() {
             .x(function (d) { return xScale(d.year); })
             .y(function (d) { return yScale(d.total); });
 
-        /*initialarea = d3.area()
-            .x(function (d) { return xScale(d.year); })
-            .y0(function () { return yScale.range()[0]; })
-            .y1(function () { return yScale.range()[0]; });
-
-        area = d3.area()
-            .x(function (d) { return xScale(d.year); })
-
-            .y0(function () { return yScale.range()[0]; }) //Specifys the bottom of the graph for the y-value
-            .y1(function (d) { return yScale(d.total); }); //Specifys the top of the y-value with the actual data*/
 
         var div = d3.select("body").append("div")
             .attr("class", "tooltip")

@@ -1,3 +1,10 @@
+/*
+
+filename: [style.css]
+Authors: [Owen, Sam]
+
+*/
+
 * {
     font-family: sans-serif;
     background-color: #F3F3F3;
@@ -28,12 +35,10 @@ div.tooltip {
     pointer-events: none;
 }
 
-
 .btns {
     padding-left: 60px;
     padding-bottom: 20px;
 }
-
 
 .button {
     border: none;
@@ -52,9 +57,9 @@ div.tooltip {
     border: 2px solid black;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
-  }
+}
 
-  
+
 .btnParks {
     background-color:#FF4136;
 }
